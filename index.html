@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC ProComm | Customer Relations Training</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N38E7KX9WX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-N38E7KX9WX');
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        hvac: {
+                            blue: '#0EA5E9', // Cool air
+                            darkBlue: '#0369A1',
+                            red: '#EF4444',  // Heat
+                            darkRed: '#B91C1C',
+                            gray: '#F8FAFC',
+                            text: '#1E293B'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Smooth scrolling and transitions */
+        html { scroll-behavior: smooth; }
+        .fade-in { animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .nav-link { cursor: pointer; transition: color 0.2s; }
+        .nav-link:hover { color: #0EA5E9; }
+        
+        /* Hide sections initially except home */
+        .section-view { display: none; }
+        #view-home { display: block; }
+        
+        .chat-bubble { max-width: 80%; }
+        .typing-dot { animation: typing 1.4s infinite ease-in-out both; }
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        @keyframes typing {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-hvac-text font-sans antialiased flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center cursor-pointer" onclick="navigate('home')">
+                    <i data-lucide="wind" class="h-8 w-8 text-hvac-blue mr-2"></i>
+                    <span class="font-bold text-xl tracking-tight">HVAC <span class="text-hvac-blue">ProComm</span></span>
+                </div>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <span class="nav-link font-medium text-sm" onclick="navigate('home')">Home</span>
+                    <span class="nav-link font-medium text-sm" onclick="navigate('podcast')">HVAC Psychology</span>
+                    <span class="nav-link font-medium text-sm" onclick="navigate('models')">Comms Models</span>
+                    <span class="nav-link font-medium text-sm" onclick="navigate('scenarios')">Key Scenarios</span>
+                    <button onclick="navigate('basecamp')" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-md font-medium text-sm transition-colors shadow-sm">
+                        Base Camp
+                    </button>
+                    <button onclick="navigate('fivestar')" class="bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white px-4 py-2 rounded-md font-medium text-sm transition-colors shadow-sm flex items-center">
+                        <i data-lucide="star" class="w-4 h-4 mr-1 fill-current"></i> Five Star Training
+                    </button>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                        <i data-lucide="menu" class="h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-2 pt-2 pb-3 space-y-1 shadow-lg">
+            <span class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('home'); toggleMobileMenu()">Home</span>
+            <span class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('podcast'); toggleMobileMenu()">HVAC Psychology</span>
+            <span class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('models'); toggleMobileMenu()">Comms Models</span>
+            <span class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('scenarios'); toggleMobileMenu()">Key Scenarios</span>
+            <span class="block px-3 py-2 rounded-md text-base font-medium text-slate-800 hover:bg-slate-100 nav-link" onclick="navigate('basecamp'); toggleMobileMenu()">Base Camp</span>
+            <span class="block px-3 py-2 rounded-md text-base font-medium text-amber-600 hover:bg-amber-50 nav-link flex items-center" onclick="navigate('fivestar'); toggleMobileMenu()"><i data-lucide="star" class="w-4 h-4 mr-1 fill-current"></i> Five Star Training</span>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+        
+        <!-- ==================== HOME VIEW ==================== -->
+        <div id="view-home" class="section-view fade-in">
+            <!-- Hero -->
+            <div class="relative bg-white overflow-hidden">
+                <div class="max-w-7xl mx-auto">
+                    <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32 pt-10 sm:pt-16 lg:pt-20">
+                        <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+                            <div class="sm:text-center lg:text-left">
+                                <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                                    <span class="block xl:inline">Master the art of</span>
+                                    <span class="block text-hvac-blue">HVAC Customer Relations</span>
+                                </h1>
+                                <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+                                    Technical skills fix the unit. Communication skills build the business. Train in psychologically validated communication models designed specifically for the daily realities of HVAC technicians.
+                                </p>
+                                <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start gap-3 flex-col sm:flex-row">
+                                    <button onclick="navigate('fivestar')" class="w-full sm:w-auto flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 md:py-4 md:text-lg transition-colors shadow-md">
+                                        <i data-lucide="star" class="w-5 h-5 mr-2 fill-current"></i> Five Star AI Training
+                                    </button>
+                                    <button onclick="navigate('basecamp')" class="w-full sm:w-auto flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-slate-800 hover:bg-slate-700 md:py-4 md:text-lg transition-colors shadow-md">
+                                        Base Camp (Guided)
+                                    </button>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+                <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 bg-gray-100 flex items-center justify-center p-12 hidden lg:flex">
+                    <!-- Stylized Graphic -->
+                    <div class="grid grid-cols-2 gap-4 w-full max-w-md opacity-80">
+                        <div class="bg-blue-200 p-6 rounded-2xl flex flex-col items-center justify-center aspect-square shadow-inner"><i data-lucide="snowflake" class="w-16 h-16 text-blue-600 mb-2"></i><span class="font-bold text-blue-800">Cool Calm</span></div>
+                        <div class="bg-red-200 p-6 rounded-2xl flex flex-col items-center justify-center aspect-square shadow-inner transform translate-y-8"><i data-lucide="flame" class="w-16 h-16 text-red-600 mb-2"></i><span class="font-bold text-red-800">Hot Emotions</span></div>
+                        <div class="bg-green-200 p-6 rounded-2xl flex flex-col items-center justify-center aspect-square shadow-inner col-span-2 mt-4"><i data-lucide="handshake" class="w-16 h-16 text-green-700 mb-2"></i><span class="font-bold text-green-800 text-lg">Successful Resolution</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== MODELS VIEW ==================== -->
+        <div id="view-models" class="section-view fade-in max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Psychological Communication Models</h2>
+                <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">Validated frameworks to de-escalate tension, build immediate trust, and guide the customer toward necessary investments.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Model 1: LAER -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="p-8">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="ear" class="w-6 h-6 text-hvac-blue"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">The L.A.E.R. Framework</h3>
+                        <p class="text-gray-600 mb-4 text-sm font-medium uppercase tracking-wide">For handling objections & complaints</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><span class="flex-shrink-0 w-8 h-8 rounded-full bg-hvac-blue text-white flex items-center justify-center font-bold mr-3 mt-1">L</span><div><strong class="text-gray-900">Listen:</strong> Do not interrupt. Let them vent. Silence is a tool.</div></li>
+                            <li class="flex items-start"><span class="flex-shrink-0 w-8 h-8 rounded-full bg-hvac-blue text-white flex items-center justify-center font-bold mr-3 mt-1">A</span><div><strong class="text-gray-900">Acknowledge:</strong> Validate their frustration without agreeing to liability.</div></li>
+                            <li class="flex items-start"><span class="flex-shrink-0 w-8 h-8 rounded-full bg-hvac-blue text-white flex items-center justify-center font-bold mr-3 mt-1">E</span><div><strong class="text-gray-900">Explore:</strong> Ask diagnostic questions (both technical and emotional).</div></li>
+                            <li class="flex items-start"><span class="flex-shrink-0 w-8 h-8 rounded-full bg-hvac-blue text-white flex items-center justify-center font-bold mr-3 mt-1">R</span><div><strong class="text-gray-900">Respond:</strong> Only after the first three steps, provide your professional recommendation.</div></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Model 2: Feel, Felt, Found -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
+                    <div class="p-8">
+                        <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="heart-handshake" class="w-6 h-6 text-hvac-red"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Feel, Felt, Found</h3>
+                        <p class="text-gray-600 mb-4 text-sm font-medium uppercase tracking-wide">For neutralizing price & timeline shock</p>
+                        <div class="space-y-4 text-gray-700">
+                            <p>This classic psychological model creates alignment rather than an adversarial dynamic. It shifts the tech from "salesperson" to "trusted advisor."</p>
+                            <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-hvac-red">
+                                <p class="mb-2"><strong>1. Feel:</strong> "I understand how you <em>feel</em> seeing a $1,200 repair estimate."</p>
+                                <p class="mb-2"><strong>2. Felt:</strong> "Many of my homeowners have <em>felt</em> that exact same shock."</p>
+                                <p><strong>3. Found:</strong> "But what we've <em>found</em> is that replacing this now saves an average of $300 in energy bills and prevents a total failure."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Model 3: Cialdini's Principles -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow md:col-span-2 w-full">
+                    <div class="p-8">
+                        <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-6">
+                            <i data-lucide="award" class="w-6 h-6 text-amber-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Cialdini's 6 Principles of Persuasion</h3>
+                        <p class="text-gray-600 mb-4 text-sm font-medium uppercase tracking-wide">For building trust & guiding decisions</p>
+                        <p class="mb-4 text-gray-700">Universal principles of influence that can be ethically applied in the field to help customers make the right investment for their home comfort.</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div class="bg-gray-50 p-4 rounded border border-gray-200">
+                                <strong class="text-gray-900 block mb-1">1. Reciprocity:</strong>
+                                <span class="text-sm text-gray-600">People feel obliged to return favors. Doing a small, unprompted extra task (like wiping down the indoor cabinet or changing a standard filter for free) builds massive goodwill.</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded border border-gray-200">
+                                <strong class="text-gray-900 block mb-1">2. Commitment & Consistency:</strong>
+                                <span class="text-sm text-gray-600">People align with what they've previously said. Ask small confirming questions ("Is indoor air quality important to your family?") before presenting the final solution.</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded border border-gray-200">
+                                <strong class="text-gray-900 block mb-1">3. Social Proof:</strong>
+                                <span class="text-sm text-gray-600">People look to others when uncertain. <em>"Many of your neighbors with this exact floor plan have been upgrading to the two-stage system to fix the hot spots upstairs."</em></span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded border border-gray-200">
+                                <strong class="text-gray-900 block mb-1">4. Authority:</strong>
+                                <span class="text-sm text-gray-600">Customers defer to experts. Keep a clean uniform, use professional diagnostic tools (like digital gauges), and always explain the <em>"why"</em> behind the <em>"what"</em>.</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded border border-gray-200">
+                                <strong class="text-gray-900 block mb-1">5. Liking:</strong>
+                                <span class="text-sm text-gray-600">People say yes to those they like. Find genuine common ground to build immediate rapport, compliment their home, pet the dog (if allowed), and be an active listener.</span>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded border border-gray-200">
+                                <strong class="text-gray-900 block mb-1">6. Scarcity:</strong>
+                                <span class="text-sm text-gray-600">People want what is limited. Highlight genuine limitations ethically, like expiring manufacturer rebates, parts shortages, or upcoming seasonal price increases.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ==================== SCENARIOS VIEW ==================== -->
+        <div id="view-scenarios" class="section-view fade-in bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Typical Interaction Situations</h2>
+                <p class="mt-4 text-xl text-gray-600">Every call is different, but they generally fall into one of these four psychological profiles.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Scenario 1 -->
+                <div class="border border-gray-200 rounded-lg p-6 hover:border-hvac-blue transition-colors flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-50 p-2 rounded-full mr-4"><i data-lucide="clipboard-check" class="text-hvac-blue w-6 h-6"></i></div>
+                        <h3 class="text-xl font-bold">1. Routine Maintenance</h3>
+                    </div>
+                    <p class="text-gray-600 flex-grow"><strong>The Vibe:</strong> Low stress, customer is mostly indifferent or sees it as a chore.</p>
+                </div>
+                <!-- Scenario 2 -->
+                <div class="border border-gray-200 rounded-lg p-6 hover:border-hvac-red transition-colors flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-red-50 p-2 rounded-full mr-4"><i data-lucide="alert-triangle" class="text-hvac-red w-6 h-6"></i></div>
+                        <h3 class="text-xl font-bold">2. Emergency Repair</h3>
+                    </div>
+                    <p class="text-gray-600 flex-grow"><strong>The Vibe:</strong> High stress, uncomfortable environment, fear of costs.</p>
+                </div>
+                <!-- Scenario 3 -->
+                <div class="border border-gray-200 rounded-lg p-6 hover:border-green-500 transition-colors flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-50 p-2 rounded-full mr-4"><i data-lucide="trending-up" class="text-green-600 w-6 h-6"></i></div>
+                        <h3 class="text-xl font-bold">3. System Upgrading</h3>
+                    </div>
+                    <p class="text-gray-600 flex-grow"><strong>The Vibe:</strong> Evaluative, skeptical, sensitive to price and ROI.</p>
+                </div>
+                <!-- Scenario 4 -->
+                <div class="border border-gray-200 rounded-lg p-6 hover:border-purple-500 transition-colors flex flex-col h-full">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-50 p-2 rounded-full mr-4"><i data-lucide="home" class="text-purple-600 w-6 h-6"></i></div>
+                        <h3 class="text-xl font-bold">4. The Second Opinion</h3>
+                    </div>
+                    <p class="text-gray-600 flex-grow"><strong>The Vibe:</strong> Distrustful of the industry, looking for a deal.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PODCAST VIEW ==================== -->
+        <div id="view-podcast" class="section-view fade-in bg-slate-50 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">HVAC Psychology</h2>
+                <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">"Windshield Time" - Quick audio sessions to tune your mindset between calls.</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow">
+                <div class="p-8">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-12 h-12 bg-hvac-blue rounded-full flex items-center justify-center text-white shadow-sm">
+                            <i data-lucide="headphones" class="w-6 h-6"></i>
+                        </div>
+                        <span class="text-xs font-bold text-gray-400 uppercase tracking-wider bg-gray-100 px-3 py-1 rounded-full">Episode 1</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Comm Psych 101: The Mindset Shift</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        You're 10 minutes out from your next call. Leave the wrenches in the back of the van and focus on your <em>other</em> tool bag. In this quick 5-minute primer, Dr. Fassbender covers de-escalation, L.A.E.R., and the critical difference between fixing the metal box and fixing the customer.
+                    </p>
+                    
+                    <div class="bg-slate-100 rounded-xl p-6 border border-slate-200">
+                        <div class="flex items-center mb-4">
+                            <i data-lucide="play-circle" class="w-5 h-5 text-hvac-blue mr-2"></i>
+                            <span class="font-semibold text-slate-800">Listen Now</span>
+                        </div>
+                        <!-- Audio Player -->
+                        <audio id="podcast-audio" controls preload="metadata" class="w-full outline-none">
+                            <source src="podcast1.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p id="podcast-status" class="mt-3 text-sm text-emerald-700 flex items-center">
+                            <i data-lucide="check-circle" class="w-4 h-4 mr-1"></i>
+                            <span>Audio file loaded and ready to play.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== BASE CAMP VIEW (OLD SIMULATOR) ==================== -->
+        <div id="view-basecamp" class="section-view fade-in bg-gray-100 min-h-[calc(100vh-4rem)] py-8">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-extrabold text-slate-800">Base Camp</h2>
+                    <p class="mt-2 text-gray-600">Guided multiple-choice role-plays to build foundational skills.</p>
+                </div>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200 flex flex-col" style="min-height: 500px;">
+                    <div class="bg-slate-800 text-white px-6 py-4 flex justify-between items-center">
+                        <div class="flex items-center">
+                            <i data-lucide="map" class="w-5 h-5 mr-2 text-blue-400"></i>
+                            <span class="font-semibold" id="bc-header-title">Guided Scenarios</span>
+                        </div>
+                        <button id="btn-back-bc" onclick="renderBaseCampList()" class="hidden text-sm hover:text-blue-300 transition-colors flex items-center">
+                            <i data-lucide="arrow-left" class="w-4 h-4 mr-1"></i> Back
+                        </button>
+                    </div>
+                    <div id="bc-content" class="p-6 flex-grow flex flex-col relative bg-slate-50"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== FIVE STAR TRAINING VIEW (AI ROLEPLAY) ==================== -->
+        <div id="view-fivestar" class="section-view fade-in bg-amber-50 min-h-[calc(100vh-4rem)] py-8">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-extrabold text-amber-900 flex justify-center items-center">
+                        <i data-lucide="star" class="w-8 h-8 mr-2 fill-amber-500 text-amber-500"></i> Five Star Training
+                    </h2>
+                    <p class="mt-2 text-amber-800">Real-time AI role-play with multi-agent psychological performance analysis.</p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-2xl overflow-hidden border border-amber-200 flex flex-col" style="min-height: 600px;">
+                    <div class="bg-gradient-to-r from-amber-600 to-yellow-600 text-white px-6 py-4 flex justify-between items-center shadow-md z-10">
+                        <div class="flex items-center">
+                            <i data-lucide="cpu" class="w-5 h-5 mr-2 text-amber-100"></i>
+                            <span class="font-semibold" id="fs-header-title">Select Scenario</span>
+                        </div>
+                        <button id="btn-back-fs" onclick="renderFiveStarList()" class="hidden text-sm hover:text-amber-200 transition-colors flex items-center">
+                            <i data-lucide="arrow-left" class="w-4 h-4 mr-1"></i> Abort Session
+                        </button>
+                    </div>
+                    <div id="fs-content" class="p-6 flex-grow flex flex-col relative bg-slate-50 overflow-y-auto"></div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-teal-50 text-teal-800 py-8 border-t border-teal-200 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm flex flex-col items-center justify-center">
+            <i data-lucide="wind" class="h-6 w-6 text-teal-600 mb-4"></i>
+            <p>(C) 2026 - Dr. Pantaleon Fassbender - leo@twistersmanagementconsultingllc.com</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        lucide.createIcons();
+
+        // Audio readiness indicator — confirms the podcast file streams from the site
+        (function () {
+            const audio = document.getElementById('podcast-audio');
+            const status = document.getElementById('podcast-status');
+            if (!audio || !status) return;
+            const setStatus = (text, ok) => {
+                status.innerHTML = `<i data-lucide="${ok ? 'check-circle' : 'alert-triangle'}" class="w-4 h-4 mr-1"></i><span>${text}</span>`;
+                status.className = `mt-3 text-sm flex items-center ${ok ? 'text-emerald-700' : 'text-red-600'}`;
+                lucide.createIcons();
+            };
+            audio.addEventListener('loadedmetadata', () => {
+                const mins = Math.floor(audio.duration / 60);
+                const secs = Math.round(audio.duration % 60).toString().padStart(2, '0');
+                setStatus(`Audio file ready — ${mins}:${secs} runtime. Press play to listen.`, true);
+            });
+            audio.addEventListener('playing', () => setStatus('Audio is playing.', true));
+            audio.addEventListener('error', () => setStatus('Audio failed to load. Check that podcast1.mp3 is deployed.', false));
+        })();
+
+        // --- Navigation Logic ---
+        function navigate(viewId) {
+            document.querySelectorAll('.section-view').forEach(el => el.style.display = 'none');
+            document.getElementById('view-' + viewId).style.display = 'block';
+            window.scrollTo(0, 0);
+
+            if (viewId === 'basecamp') renderBaseCampList();
+            if (viewId === 'fivestar') renderFiveStarList();
+        }
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function toggleMobileMenu() { mobileMenu.classList.toggle('hidden'); }
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+
+        // --- Shared Scenario Data ---
+        const coreScenarios = [
+            {
+                id: 'repair-shock', icon: 'flame', color: 'text-red-500',
+                title: "The Price Shock", type: "Emergency Repair",
+                context: "It is 95 degrees outside. The customer's AC has been down for 24 hours. You've diagnosed a dead condenser fan motor and a blown dual run capacitor. Total repair cost: $850.",
+                aiPersona: "You are a hot, sweaty, frustrated customer. You think $850 is a total rip-off for what looks like simple parts. You are defensive but ultimately need cold air.",
+                steps: [
+                    {
+                        npc: "Customer: 'Eight hundred and fifty dollars?! For a fan and a capacitor? That's highway robbery! I saw a motor online for $120. Are you guys just trying to rip me off because it's hot?'",
+                        options: [
+                            { text: "Ma'am, it's not a battery, it's a capacitor. And our pricing includes labor...", isGood: false, model: "Poor Approach", feedback: "Defensive and pedantic." },
+                            { text: "I completely understand why that number is shocking, especially when it's this hot...", isGood: true, model: "Feel, Felt, Found", feedback: "Excellent use of Empathy.", nextStep: 1 }
+                        ]
+                    },
+                    {
+                        npc: "Customer: 'It's just so much money right before school starts. Is this absolutely necessary? Can't we just patch it up for now?'",
+                        options: [
+                            { text: "Look, if we don't fix this now, your compressor is going to burn out...", isGood: false, model: "Fear Tactics", feedback: "Using fear undoes your hard work." },
+                            { text: "...What we've found is that trying to run the system with these failing components...", isGood: true, model: "The Pivot", feedback: "Perfect execution of 'Found'." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'maint-upgrade', icon: 'trending-up', color: 'text-green-500',
+                title: "The Old Clunker", type: "Routine Maintenance",
+                context: "You are doing a standard Spring AC tune-up. The system is 14 years old, uses R-22 refrigerant, and is struggling to reach optimal subcooling. The customer is casually watching you work.",
+                aiPersona: "You are a casual homeowner. You think the AC is fine because it blows cold air. You are unaware of R-22 phaseouts or efficiency issues.",
+                steps: [
+                    {
+                        npc: "Customer: 'Well, she's old, but she still blows cold air! Should be good for another summer, right?'",
+                        options: [
+                            { text: "Actually, it's 14 years old and uses R-22 which is illegal to make now...", isGood: false, model: "Feature Dumping", feedback: "Too aggressive." },
+                            { text: "Yeah, she's definitely a survivor! While I'm finishing up checking these pressures, can I ask you—how has the comfort level been...", isGood: true, model: "Consultative", feedback: "Great start.", nextStep: 1 }
+                        ]
+                    },
+                    {
+                        npc: "Customer: 'Now that you mention it, the upstairs master bedroom always stays about 4 degrees warmer. My wife hates it.'",
+                        options: [
+                            { text: "Oh, well a new variable-speed inverter system will fix that right up...", isGood: false, model: "Premature Pitch", feedback: "You skipped the 'Implication'." },
+                            { text: "I hear that a lot with older single-stage systems. Does having to run that loud window unit disrupt your sleep?", isGood: true, model: "Consultative", feedback: "Excellent implication question." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'second-opinion', icon: 'home', color: 'text-purple-500',
+                title: "The Second Opinion", type: "Competitor Quote",
+                context: "Customer had 'Big Name HVAC' out yesterday. They condemned the 10-year-old furnace, cited a cracked heat exchanger, and quoted $12,000 for a replacement. The customer called you, highly suspicious.",
+                aiPersona: "You are very suspicious of the HVAC industry. The last guy tried to hard-sell you a $12k system in 5 minutes using fear tactics.",
+                steps: [
+                    {
+                        npc: "Customer: 'The last guy was in there for 5 minutes and told me if I turn my heat on, we will all die of carbon monoxide. Are they just trying to scare me?'",
+                        options: [
+                            { text: "Wow, Big Name HVAC strikes again. They do this to everyone...", isGood: false, model: "Bashing", feedback: "Never bash the competitor." },
+                            { text: "I completely understand why you'd be concerned. I'm going to put my analyzer on it, and I invite you to look at the screen with me.", isGood: true, model: "Radical Transparency", feedback: "Excellent validation.", nextStep: 1 }
+                        ]
+                    },
+                    {
+                        npc: "Customer (Relieved): 'Thank you. I'd really appreciate that. If it IS broken, can you guys beat $12,000?'",
+                        options: [
+                            { text: "Oh easily, we can probably do it for $8,000. We don't have their massive overhead.", isGood: false, model: "Premature Price Drop", feedback: "You just commoditized your work." },
+                            { text: "We have options for almost every budget. Let's first confirm if you actually need a system.", isGood: true, model: "Consultative Delay", feedback: "Perfect expectation setting." }
+                        ]
+                    }
+                ]
+            },
+            {
+                id: 'system-replacement', icon: 'pie-chart', color: 'text-teal-600',
+                title: "The Skeptical Shopper", type: "System Replacement",
+                context: "You are reviewing a quote for a new high-efficiency system with a homeowner. They are heavily focused on the bottom-line price and are questioning the ROI.",
+                aiPersona: "You are an analytical, price-conscious shopper. You don't see why a high SEER unit is worth $3,000 more than a basic unit.",
+                steps: [
+                    {
+                        npc: "Customer: 'Look, your quote is $3,000 higher than the baseline 14-SEER option. What is the actual return on investment here?'",
+                        options: [
+                            { text: "Well, the higher end model has a variable speed compressor, better SEER rating...", isGood: false, model: "Feature Dumping", feedback: "Jargon without connection to needs." },
+                            { text: "If you want to save money right now, you can go with the cheaper one, but you'll end up paying for it later.", isGood: false, model: "Passive Aggressive", feedback: "Adversarial relationship." },
+                            { text: "That's a very fair question. When we walked the house earlier, you mentioned the severe humidity issues upstairs. If this system could completely resolve those...", isGood: true, model: "Need-Payoff", feedback: "Excellent use of their own pain points." }
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        // --- BASE CAMP (OLD SIMULATOR) LOGIC ---
+        let bcState = { active: false, scenario: null, stepIndex: 0 };
+        
+        function renderBaseCampList() {
+            bcState = { active: false, scenario: null, stepIndex: 0 };
+            document.getElementById('bc-header-title').innerText = "Guided Scenarios";
+            document.getElementById('btn-back-bc').classList.add('hidden');
+            
+            let html = `<div class="grid grid-cols-1 gap-4">`;
+            coreScenarios.forEach(sc => {
+                html += `
+                    <div onclick="startBaseCamp('${sc.id}')" class="bg-white border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-hvac-blue hover:shadow-md transition-all flex items-center group">
+                        <div class="bg-gray-50 p-3 rounded-full mr-4 group-hover:bg-blue-50 transition-colors">
+                            <i data-lucide="${sc.icon}" class="${sc.color} w-6 h-6"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">${sc.type}</span>
+                            <h4 class="text-lg font-bold text-gray-800 group-hover:text-hvac-blue transition-colors">${sc.title}</h4>
+                        </div>
+                        <i data-lucide="chevron-right" class="text-gray-300 group-hover:text-hvac-blue w-5 h-5"></i>
+                    </div>
+                `;
+            });
+            html += `</div>`;
+            document.getElementById('bc-content').innerHTML = html;
+            lucide.createIcons();
+        }
+
+        function startBaseCamp(id) {
+            bcState.active = true;
+            bcState.scenario = coreScenarios.find(s => s.id === id);
+            bcState.stepIndex = 0;
+            document.getElementById('bc-header-title').innerText = `Base Camp: ${bcState.scenario.title}`;
+            document.getElementById('btn-back-bc').classList.remove('hidden');
+            renderBaseCampStep();
+        }
+
+        function renderBaseCampStep() {
+            const step = bcState.scenario.steps[bcState.stepIndex];
+            let html = `
+                ${bcState.stepIndex === 0 ? `
+                <div class="bg-blue-50 border-l-4 border-hvac-blue p-4 mb-6 rounded-r-lg text-sm fade-in">
+                    <strong class="text-hvac-darkBlue block mb-1">Dispatch Context:</strong>
+                    <span class="text-gray-700">${bcState.scenario.context}</span>
+                </div>` : ''}
+
+                <div class="flex mb-8 fade-in">
+                    <div class="flex-shrink-0 mr-4">
+                        <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center"><i data-lucide="user" class="text-gray-600 w-6 h-6"></i></div>
+                    </div>
+                    <div class="bg-white border border-gray-200 p-4 rounded-2xl rounded-tl-none shadow-sm flex-grow relative">
+                        <p class="text-gray-800 text-lg font-medium leading-relaxed">"${step.npc.replace(/Customer[^:]*:\s*/, '')}"</p>
+                        <span class="absolute -top-3 left-4 bg-gray-100 px-2 text-xs font-bold text-gray-500 rounded">Customer</span>
+                    </div>
+                </div>
+
+                <div class="space-y-3 mt-auto fade-in">
+                    <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Select Your Response:</h4>
+            `;
+            step.options.forEach((opt, index) => {
+                html += `
+                    <button onclick="handleBaseCampChoice(${index})" class="w-full text-left p-4 bg-white border border-gray-300 rounded-lg hover:border-hvac-blue hover:bg-blue-50 transition-all shadow-sm group relative">
+                        <p class="text-gray-700 font-medium group-hover:text-hvac-darkBlue pr-6">${opt.text}</p>
+                        <i data-lucide="arrow-right" class="absolute right-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-transparent group-hover:text-hvac-blue transition-colors"></i>
+                    </button>
+                `;
+            });
+            html += `</div>`;
+            document.getElementById('bc-content').innerHTML = html;
+            lucide.createIcons();
+        }
+
+        function handleBaseCampChoice(optIdx) {
+            const choice = bcState.scenario.steps[bcState.stepIndex].options[optIdx];
+            let html = `
+                <div class="flex flex-col h-full fade-in">
+                    <div class="mb-6">
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-500 block mb-1">You said:</span>
+                        <div class="bg-blue-50 border border-blue-100 p-4 rounded-lg"><p class="text-gray-800 italic">"${choice.text}"</p></div>
+                    </div>
+                    <div class="${choice.isGood ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'} border p-6 rounded-xl shadow-sm flex-grow flex flex-col justify-center items-center text-center">
+                        <div class="${choice.isGood ? 'bg-green-100 text-green-600' : 'bg-red-100 text-red-600'} p-3 rounded-full mb-4">
+                            <i data-lucide="${choice.isGood ? 'check-circle' : 'x-circle'}" class="w-10 h-10"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold ${choice.isGood ? 'text-green-800' : 'text-red-800'} mb-2">
+                            ${choice.isGood ? 'Excellent Approach' : 'Needs Improvement'}
+                        </h3>
+                        <div class="bg-white px-3 py-1 rounded-full text-xs font-bold text-gray-500 uppercase tracking-wider mb-4 border border-gray-200">
+                            Model Analysed: ${choice.model}
+                        </div>
+                        <p class="text-gray-700 max-w-md leading-relaxed text-lg">${choice.feedback}</p>
+                    </div>
+                    <div class="mt-6">
+            `;
+            if (choice.isGood) {
+                if (choice.nextStep !== undefined) {
+                    html += `<button onclick="bcState.stepIndex = ${choice.nextStep}; renderBaseCampStep();" class="w-full bg-hvac-blue hover:bg-hvac-darkBlue text-white font-bold py-4 rounded-lg shadow-md transition-colors flex justify-center items-center">Continue Conversation <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i></button>`;
+                } else {
+                    html += `<button onclick="renderBaseCampList()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-lg shadow-md transition-colors flex justify-center items-center"><i data-lucide="check" class="mr-2 w-5 h-5"></i> Call Completed. Return to Base Camp.</button>`;
+                }
+            } else {
+                 html += `<button onclick="renderBaseCampStep()" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-4 rounded-lg transition-colors flex justify-center items-center"><i data-lucide="rotate-ccw" class="mr-2 w-5 h-5"></i> Try Again</button>`;
+            }
+            html += `</div></div>`;
+            document.getElementById('bc-content').innerHTML = html;
+            lucide.createIcons();
+        }
+
+        // --- FIVE STAR TRAINING (AI) LOGIC ---
+        let fsState = { active: false, scenario: null, messages: [], customMode: false };
+
+        async function callRoleplayAPI(messages, isGreeting = false) {
+            const res = await fetch('/api/roleplay', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    context: fsState.scenario.context,
+                    aiPersona: fsState.scenario.aiPersona,
+                    messages,
+                    isGreeting
+                })
+            });
+            if (!res.ok) {
+                const err = await res.json().catch(() => ({}));
+                throw new Error(err.error || `HTTP ${res.status}`);
+            }
+            const data = await res.json();
+            return data.text || '';
+        }
+
+        async function callAnalysisAPI(transcript) {
+            const res = await fetch('/api/analysis', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ transcript })
+            });
+            if (!res.ok) {
+                const err = await res.json().catch(() => ({}));
+                throw new Error(err.error || `HTTP ${res.status}`);
+            }
+            return await res.json();
+        }
+
+        function renderFiveStarList() {
+            fsState = { active: false, scenario: null, messages: [], customMode: false };
+            document.getElementById('fs-header-title').innerText = "Select AI Role-Play Scenario";
+            document.getElementById('btn-back-fs').classList.add('hidden');
+            
+            let html = `<div class="grid grid-cols-1 gap-4">`;
+            coreScenarios.forEach(sc => {
+                html += `
+                    <div onclick="startFiveStar('${sc.id}')" class="bg-white border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-amber-500 hover:shadow-md transition-all flex items-center group">
+                        <div class="bg-amber-50 p-3 rounded-full mr-4 group-hover:bg-amber-100 transition-colors">
+                            <i data-lucide="${sc.icon}" class="text-amber-600 w-6 h-6"></i>
+                        </div>
+                        <div class="flex-grow">
+                            <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">${sc.type}</span>
+                            <h4 class="text-lg font-bold text-gray-800 group-hover:text-amber-600 transition-colors">${sc.title}</h4>
+                        </div>
+                        <i data-lucide="cpu" class="text-gray-300 group-hover:text-amber-500 w-5 h-5"></i>
+                    </div>
+                `;
+            });
+            html += `
+                <div onclick="renderBuildAI()" class="bg-slate-50 border-2 border-dashed border-gray-300 rounded-lg p-4 cursor-pointer hover:border-amber-500 hover:bg-amber-50 transition-all flex items-center justify-center group mt-2">
+                    <i data-lucide="plus-circle" class="text-gray-400 group-hover:text-amber-500 w-6 h-6 mr-3"></i>
+                    <h4 class="text-lg font-bold text-gray-500 group-hover:text-amber-600 transition-colors">Build Your Own Scenario</h4>
+                </div>
+            </div>`;
+            document.getElementById('fs-content').innerHTML = html;
+            lucide.createIcons();
+        }
+
+        function renderBuildAI() {
+            document.getElementById('fs-header-title').innerText = "Design AI Scenario";
+            document.getElementById('btn-back-fs').classList.remove('hidden');
+            document.getElementById('fs-content').innerHTML = `
+                <div class="fade-in max-w-2xl mx-auto w-full">
+                    <p class="text-gray-500 text-sm mb-6 text-center">Define the context and the customer's personality. The AI will play the role.</p>
+                    <form onsubmit="handleBuildAISubmit(event)" class="space-y-4 bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Scenario Title</label>
+                            <input type="text" id="ai-title" required class="w-full border p-2 rounded focus:ring-2 focus:ring-amber-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Dispatch Context</label>
+                            <textarea id="ai-context" required rows="2" class="w-full border p-2 rounded focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-1">Customer Persona Instructions (For AI)</label>
+                            <textarea id="ai-persona" required rows="3" placeholder="e.g., You are an angry landlord. You refuse to pay the diagnostic fee." class="w-full border p-2 rounded focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold py-3 rounded shadow mt-4">Start Custom AI Roleplay</button>
+                    </form>
+                </div>
+            `;
+            lucide.createIcons();
+        }
+
+        function handleBuildAISubmit(e) {
+            e.preventDefault();
+            const customScenario = {
+                id: 'custom-' + Date.now(),
+                title: document.getElementById('ai-title').value,
+                context: document.getElementById('ai-context').value,
+                aiPersona: document.getElementById('ai-persona').value,
+                type: "Custom AI Simulation"
+            };
+            coreScenarios.push(customScenario);
+            startFiveStar(customScenario.id);
+        }
+
+        function startFiveStar(id) {
+            fsState.active = true;
+            fsState.scenario = coreScenarios.find(s => s.id === id);
+            fsState.messages = [];
+            document.getElementById('fs-header-title').innerText = `AI Live Session: ${fsState.scenario.title}`;
+            document.getElementById('btn-back-fs').classList.remove('hidden');
+            renderAIChatUI();
+            
+            // Kick off AI greeting
+            getAIResponse(true);
+        }
+
+        function renderAIChatUI() {
+            document.getElementById('fs-content').innerHTML = `
+                <div class="bg-blue-50 border-l-4 border-hvac-blue p-4 mb-4 rounded-r-lg text-sm flex-shrink-0">
+                    <strong class="text-hvac-darkBlue block mb-1">Dispatch Info:</strong>
+                    <span class="text-gray-700">${fsState.scenario.context}</span>
+                </div>
+                
+                <div id="ai-chat-history" class="flex-grow overflow-y-auto mb-4 space-y-4 px-2 pb-4">
+                    <!-- Messages go here -->
+                </div>
+
+                <div class="mt-auto border-t pt-4 bg-white sticky bottom-0 z-10 flex flex-col gap-2">
+                    <div id="ai-controls" class="flex items-end gap-2">
+                        <textarea id="ai-input" rows="2" placeholder="Type your response to the customer..." class="flex-grow border border-gray-300 rounded-lg p-3 resize-none focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
+                        <button onclick="sendUserMessage()" class="bg-amber-600 hover:bg-amber-700 text-white p-3 rounded-lg flex-shrink-0 self-stretch flex items-center justify-center transition-colors">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <button onclick="endRoleplay()" class="w-full text-center text-sm font-bold text-red-600 py-2 hover:bg-red-50 rounded transition-colors border border-red-200">
+                        End Role-play & Request Panel Analysis
+                    </button>
+                </div>
+            `;
+            lucide.createIcons();
+        }
+
+        function appendMessage(role, text, options = {}) {
+            const chatHistory = document.getElementById('ai-chat-history');
+            const div = document.createElement('div');
+            div.className = `flex ${role === 'user' ? 'justify-end' : 'justify-start'} fade-in`;
+
+            if (role === 'ai') {
+                div.innerHTML = `
+                    <div class="flex-shrink-0 mr-3 mt-1">
+                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center"><i data-lucide="user" class="text-gray-600 w-4 h-4"></i></div>
+                    </div>
+                    <div class="bg-white border border-gray-200 p-3 rounded-2xl rounded-tl-none shadow-sm chat-bubble text-gray-800">
+                        ${text}
+                    </div>
+                `;
+            } else {
+                div.innerHTML = `
+                    <div class="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none shadow-sm chat-bubble">
+                        ${text}
+                    </div>
+                `;
+            }
+            chatHistory.appendChild(div);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+            lucide.createIcons();
+
+            if (!options.transient) {
+                fsState.messages.push({ role: role === 'user' ? 'user' : 'model', parts: [{ text: text }] });
+            }
+            return div;
+        }
+
+        async function sendUserMessage() {
+            const input = document.getElementById('ai-input');
+            const text = input.value.trim();
+            if (!text) return;
+            
+            input.value = '';
+            appendMessage('user', text);
+            await getAIResponse();
+        }
+
+        async function getAIResponse(isGreeting = false) {
+            const inputCtrl = document.getElementById('ai-input');
+            inputCtrl.disabled = true;
+
+            const typingIndicator = appendMessage(
+                'ai',
+                '<div class="flex items-center h-4 space-x-1"><div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div><div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div><div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div></div>',
+                { transient: true }
+            );
+
+            try {
+                const responseText = await callRoleplayAPI(fsState.messages, isGreeting);
+                typingIndicator.remove();
+                const safeText = (responseText || '').trim();
+                if (!safeText) {
+                    appendMessage('ai', '<em class="text-gray-500">(The customer pauses and looks at you, unsure what to say. Try opening the conversation differently.)</em>', { transient: true });
+                } else {
+                    appendMessage('ai', safeText);
+                }
+            } catch (err) {
+                typingIndicator.remove();
+                const detail = (err && err.message) ? err.message : 'Could not connect to AI.';
+                appendMessage('ai', `<em class="text-red-600">(System error: ${detail})</em>`, { transient: true });
+                console.error(err);
+            } finally {
+                inputCtrl.disabled = false;
+                inputCtrl.focus();
+            }
+        }
+
+        async function endRoleplay() {
+            if (fsState.messages.length < 3) {
+                alert("Please interact a bit more before requesting analysis.");
+                return;
+            }
+
+            document.getElementById('fs-header-title').innerText = "Expert Panel Evaluation";
+            document.getElementById('btn-back-fs').classList.add('hidden');
+            
+            document.getElementById('fs-content').innerHTML = `
+                <div class="flex flex-col items-center justify-center h-full text-center space-y-4 fade-in">
+                    <i data-lucide="loader-2" class="w-12 h-12 text-amber-500 animate-spin"></i>
+                    <h3 class="text-xl font-bold text-gray-800">Generating Multi-Agent Analysis...</h3>
+                    <p class="text-gray-500 max-w-md">Our simulated Customer, Veteran HVAC Tech, and Applied Psychologist are reviewing your transcript.</p>
+                </div>
+            `;
+            lucide.createIcons();
+
+            const transcriptText = fsState.messages.map(m => `${m.role === 'user' ? 'Technician (User)' : 'Customer'}: ${m.parts[0].text}`).join("\n");
+
+            try {
+                const analysis = await callAnalysisAPI(transcriptText);
+                renderAnalysis(analysis);
+            } catch (err) {
+                console.error(err);
+                document.getElementById('fs-content').innerHTML = `<div class="text-red-500 p-4 font-bold">Analysis failed to generate. Please try again later.</div><button onclick="renderFiveStarList()" class="mt-4 px-4 py-2 bg-slate-200 rounded">Back</button>`;
+            }
+        }
+
+        function renderAnalysis(analysis) {
+            let html = `<div class="max-w-3xl mx-auto w-full pb-8 space-y-8 fade-in">
+                <div class="text-center mb-6">
+                    <h3 class="text-2xl font-bold text-slate-800">Post-Call Debrief</h3>
+                    <p class="text-gray-500">Panel breakdown of your interaction.</p>
+                </div>
+            `;
+
+            const renderRound = (roundNum, messages) => {
+                let rHtml = `<div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm"><h4 class="font-bold text-slate-400 mb-4 border-b pb-2 uppercase text-sm tracking-wider">Round ${roundNum}</h4><div class="space-y-4">`;
+                messages.forEach(msg => {
+                    let icon, color, bg;
+                    if (msg.agent.includes("Customer")) { icon = "user"; color = "text-gray-600"; bg = "bg-gray-100"; }
+                    else if (msg.agent.includes("HVAC")) { icon = "wrench"; color = "text-blue-600"; bg = "bg-blue-100"; }
+                    else { icon = "brain"; color = "text-purple-600"; bg = "bg-purple-100"; }
+                    
+                    rHtml += `
+                        <div class="flex items-start">
+                            <div class="${bg} p-2 rounded-full mr-3 mt-1"><i data-lucide="${icon}" class="w-5 h-5 ${color}"></i></div>
+                            <div>
+                                <strong class="text-slate-800 text-sm block">${msg.agent}</strong>
+                                <p class="text-gray-700 leading-relaxed">${msg.message}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+                return rHtml + `</div></div>`;
+            };
+
+            if(analysis.round1) html += renderRound(1, analysis.round1);
+            if(analysis.round2) html += renderRound(2, analysis.round2);
+
+            if(analysis.conclusion) {
+                const adviceItems = Array.isArray(analysis.conclusion.advice) && analysis.conclusion.advice.length > 0 
+                    ? analysis.conclusion.advice 
+                    : ["Build stronger authority by explaining the 'why' behind your diagnostic process.", "Use the principle of liking to find common ground before talking about system price.", "Create controlled scarcity by explaining how quickly key replacement parts are going out of stock."];
+
+                html += `
+                    <div class="bg-gradient-to-br from-amber-50 to-yellow-50 border border-amber-200 rounded-xl p-6 shadow-md mt-6">
+                        <div class="flex items-center mb-4 text-amber-800">
+                            <i data-lucide="award" class="w-6 h-6 mr-2"></i>
+                            <h4 class="font-bold text-lg">Summative Evaluation & Advice</h4>
+                        </div>
+                        <p class="text-gray-800 italic mb-6 border-l-4 border-amber-400 pl-4">"${analysis.conclusion.evaluation || "The technician showed communication effort but missed opportunities to apply psychological models."}"</p>
+                        <h5 class="font-bold text-slate-700 mb-3 text-sm uppercase tracking-wide">3 Actionable Steps (Cialdini's Principles):</h5>
+                        <ul class="space-y-3">
+                            ${adviceItems.map(adv => `
+                                <li class="flex items-start">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5"></i>
+                                    <span class="text-slate-700">${adv}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+            }
+
+            html += `<button onclick="renderFiveStarList()" class="w-full mt-8 bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 rounded-lg shadow transition-colors flex justify-center items-center">Return to Training Menu</button></div>`;
+            
+            document.getElementById('fs-content').innerHTML = html;
+            lucide.createIcons();
+            document.getElementById('fs-content').scrollTop = 0;
+        }
+
+    </script>
+</body>
+</html>
