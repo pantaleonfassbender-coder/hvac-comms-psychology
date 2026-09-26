@@ -232,7 +232,7 @@
         <div id="view-scenarios" class="section-view fade-in bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Typical Interaction Situations</h2>
-                <p class="mt-4 text-xl text-gray-600">Every call is different, but they generally fall into one of these four psychological profiles. Open a card for the outline, then practice it.</p>
+                <p class="mt-4 text-xl text-gray-600">Every call is different, but they generally fall into one of four psychological profiles, plus the safety call that overrides them all. Open a card for the outline, then practice it.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
@@ -337,6 +337,41 @@
                         <div class="flex flex-col sm:flex-row gap-3 pt-2">
                             <button type="button" onclick="practiceScenario('basecamp', 'second-opinion')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-md">Practice in Base Camp</button>
                             <button type="button" onclick="practiceScenario('fivestar', 'second-opinion')" class="flex-1 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold py-2 px-4 rounded-md">AI role-play (Five Star)</button>
+                        </div>
+                    </div>
+                </details>
+                <!-- Scenario 5: overrides the other four -->
+                <details class="scenario-card group border-2 border-orange-300 rounded-lg hover:border-orange-500 open:border-orange-500 transition-colors lg:col-span-2 bg-orange-50/40">
+                    <summary class="p-6 cursor-pointer list-none">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-orange-100 p-2 rounded-full mr-4"><i data-lucide="siren" class="text-orange-600 w-6 h-6"></i></div>
+                            <h3 class="text-xl font-bold flex-grow">5. The Safety Call (Gas Smell)</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180"></i>
+                        </div>
+                        <p class="text-gray-600"><strong>The Vibe:</strong> Fear, denial or impatience. The customer wants comfort back; you have to put safety first. This one overrides the other four.</p>
+                        <span class="mt-3 inline-block text-sm font-semibold text-orange-600 group-open:hidden">Show outline &rarr;</span>
+                    </summary>
+                    <div class="px-6 pb-6 space-y-4 text-sm text-gray-700 border-t border-orange-100 pt-4">
+                        <div><h4 class="font-bold text-gray-900 mb-1">What's going on for the customer</h4><p>"It's been like that for weeks and nothing happened." People get used to a smell and underestimate the risk (normalization). Add cold, tired kids and a fear of big bills, and the customer may push hard for a quick fix or suspect you of selling.</p></div>
+                        <div><h4 class="font-bold text-gray-900 mb-1">Your goal</h4><p>Make the home safe first, then make the customer understand why, without panic and without giving in. The customer should end the call safe, informed, and with a plan for tonight.</p></div>
+                        <div><h4 class="font-bold text-gray-900 mb-1">Models that fit</h4><p>Calm safety disclosure: acknowledge, state the fact, say what you have done, show the evidence. Authority through the detector reading, not through volume. Then L.A.E.R.'s "Respond": concrete, safe options for the customer's real problem.</p></div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div><h4 class="font-bold text-green-700 mb-1">Do</h4><ul class="space-y-1">
+                                <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Make it safe first, talk second: follow your company's shut-off and tagging procedure.</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>"I found gas leaking at the furnace connection. I've shut the gas off to it, so you're safe right now."</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Show the detector reading; explain the next step and what it costs before you do it.</span></li>
+                                <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Help with tonight: safe temporary heat, who to call if the smell returns.</span></li>
+                            </ul></div>
+                            <div><h4 class="font-bold text-red-700 mb-1">Avoid</h4><ul class="space-y-1">
+                                <li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Relighting "just for tonight", or accepting a signed waiver for a known leak.</span></li>
+                                <li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Dramatizing ("death trap") or using the hazard to push a system sale.</span></li>
+                                <li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>"Those are the rules": own the decision instead of hiding behind policy.</span></li>
+                            </ul></div>
+                        </div>
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-3 rounded-r"><strong class="text-gray-900">Safety line:</strong> This page trains the conversation, not the procedure. A strong gas smell in the house means nobody operates switches or appliances; everyone leaves, and the gas utility's emergency line or 911 is called from outside. Always follow your company's procedure, your instructor, and local code.</div>
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <button type="button" onclick="practiceScenario('basecamp', 'gas-smell')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-md">Practice in Base Camp</button>
+                            <button type="button" onclick="practiceScenario('fivestar', 'gas-smell')" class="flex-1 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold py-2 px-4 rounded-md">AI role-play (Five Star)</button>
                         </div>
                     </div>
                 </details>
@@ -586,6 +621,31 @@
                     }
                 ]
             }
+            ,
+            {
+                id: 'gas-smell', icon: 'siren', color: 'text-orange-600',
+                title: "The Gas Smell", type: "Safety Call",
+                context: "Winter evening, 30 degrees outside. No-heat call: the furnace won't light. The customer mentioned a faint gas smell in the utility closet. Your combustible gas detector confirms a leak at the furnace's gas connector. You have shut off the gas to the furnace per company procedure. The rest of the house reads clear.",
+                aiPersona: "You are a tired parent with two young kids and a cold house. You want the heat back on tonight. You think the technician may be overcautious or setting up a big sale. You push for a quick relight and offer to sign something. You only calm down if the tech stays calm, shows you the evidence, and offers practical options for tonight. If the tech agrees to turn the furnace back on despite the leak, act relieved.",
+                steps: [
+                    {
+                        npc: "Customer: 'Please just get it running tonight. It's freezing and the kids are already in bed with their coats on. That smell's been there for weeks, it can't be that bad.'",
+                        options: [
+                            { text: "It's a pretty small leak. I'll relight it for tonight and we'll come back Monday to fix the connector.", isGood: false, model: "Minimizing the Hazard", feedback: "Never. A confirmed gas leak is not a scheduling question. Relighting knowingly puts the family at risk of fire or explosion and makes you and your company responsible for what happens." },
+                            { text: "Ma'am, this is a death trap. You're lucky the house hasn't blown up.", isGood: false, model: "Fear Escalation", feedback: "The facts are serious enough on their own. Dramatic language causes panic or makes you sound like you are selling. State what you found, what you did, and what happens next, calmly." },
+                            { text: "I hear you, and a cold house with kids is hard. I have to be straight with you: my detector confirms gas leaking at the furnace connection. I've shut off the gas to the furnace so the house is safe. Let me show you the reading, then we'll figure out tonight together.", isGood: true, model: "Calm Safety Disclosure", feedback: "Acknowledge, then state the fact plainly, then say what you have already done to make it safe, then show the evidence. Calm plus evidence is what makes a frightened customer trust you.", nextStep: 1 }
+                        ]
+                    },
+                    {
+                        npc: "Customer: 'So we just freeze? Look, I'll sign a waiver, whatever you need. Just turn it back on and I'll take responsibility.'",
+                        options: [
+                            { text: "Okay, if you sign here that you declined the repair, I can turn it back on.", isGood: false, model: "Waiver for a Hazard", feedback: "A signature does not make a gas leak safe, and it does not protect you. A known leak stays off: tag it per your company's procedure, no matter what the customer offers to sign." },
+                            { text: "Sorry, those are the rules. It's not my call.", isGood: false, model: "Hiding Behind Policy", feedback: "You are right to keep it off, but hiding behind 'rules' sounds like you don't care. Own the decision and move to what you can do." },
+                            { text: "I can't turn it on with a leak. I wouldn't for my own family. Here's what I can do: the fix is a new connector, and I'll check the truck for one right now. If I don't have it, let's make tonight safe: electric space heaters in the rooms you're using, away from bedding and curtains, and never the oven or a grill for heat.", isGood: true, model: "Firm Boundary + Options", feedback: "The boundary is non-negotiable, and you say it as a personal commitment, not a policy. Then you move straight to the customer's real problem, a safe warm night, with concrete options. That is L.A.E.R.'s 'Respond' done right." }
+                        ]
+                    }
+                ]
+            }
         ];
 
         // --- BASE CAMP (OLD SIMULATOR) LOGIC ---
@@ -639,7 +699,7 @@
                         <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center"><i data-lucide="user" class="text-gray-600 w-6 h-6"></i></div>
                     </div>
                     <div class="bg-white border border-gray-200 p-4 rounded-2xl rounded-tl-none shadow-sm flex-grow relative">
-                        <p class="text-gray-800 text-lg font-medium leading-relaxed">"${step.npc.replace(/Customer[^:]*:\s*/, '')}"</p>
+                        <p class="text-gray-800 text-lg font-medium leading-relaxed">"${step.npc.replace(/Customer[^:]*:\s*/, '').replace(/^'|'$/g, '')}"</p>
                         <span class="absolute -top-3 left-4 bg-gray-100 px-2 text-xs font-bold text-gray-500 rounded">Customer</span>
                     </div>
                 </div>
