@@ -29,6 +29,7 @@ Author: Dr. Pantaleon Fassbender, Williston, Florida
 - No cookies, no analytics, no browser storage, no database. Fonts, styles, and icons are self-hosted.
 - Five Star Training sends the scenario text and the conversation to two Netlify Functions, which forward it to Google Gemini (`gemini-2.5-flash`) and return the reply. Nothing is stored by the site.
 - Netlify hosts the site and adds its own page-performance measurement script.
+- Anonymous daily counters (AI requests, sessions per scenario, debriefs, cap hits) in Netlify Blobs power a daily AI cap and pilot statistics. No IP, no text, no identifiers.
 - Full details: [`legal.html`](legal.html) (also linked in the site footer). **If you change what the functions send or store, update `legal.html` in the same commit.**
 
 ## Project structure
@@ -41,6 +42,8 @@ vendor/                        tailwind.js (3.4.17), lucide.min.js (1.48.0)
 podcast1.mp3                   Episode 1 audio
 netlify/functions/roleplay.mts AI customer (POST /api/roleplay)
 netlify/functions/analysis.mts Panel debrief (POST /api/analysis)
+netlify/functions/stats.mts    Owner-only usage statistics (GET /api/stats)
+netlify/lib/usage.mts          Daily counters and AI cap (Netlify Blobs)
 netlify.toml                   Publish dir, functions dir, security headers
 ```
 
@@ -68,6 +71,13 @@ With the AI functions (requires the [Netlify CLI](https://docs.netlify.com/cli/g
 npm install
 netlify dev
 ```
+
+## Daily AI cap and pilot statistics
+
+- `DAILY_AI_LIMIT` (Netlify environment variable, default `3000`): maximum AI calls (role-play turns plus debriefs) per day, Eastern time. When reached, the AI features show a friendly pause message; Base Camp keeps working.
+- `STATS_KEY` (Netlify environment variable): secret for the owner-only statistics endpoint. Without it, the endpoint returns 404.
+- Statistics: `/api/stats?key=<STATS_KEY>` (JSON, last 30 days) or `/api/stats?key=<STATS_KEY>&days=90&format=csv` (spreadsheet).
+- Counters are approximate under heavy parallel load (no locking), which is fine for a soft cap and pilot reporting. If storage is unavailable, the AI features keep working (fail open).
 
 ## Deployment
 

@@ -1,5 +1,6 @@
 import type { Context } from '@netlify/functions';
 import { GoogleGenAI } from '@google/genai';
+import { reserveCall, CAP_MESSAGE } from '../lib/usage.mts';
 
 const ai = new GoogleGenAI({});
 const MODEL = 'gemini-2.5-flash';
@@ -16,6 +17,7 @@ interface ChatRequest {
   aiPersona: string;
   messages: ChatMessage[];
   isGreeting?: boolean;
+  scenarioId?: string;
 }
 
 export default async (req: Request, _context: Context) => {
@@ -30,7 +32,7 @@ export default async (req: Request, _context: Context) => {
     return Response.json({ error: 'Invalid JSON body' }, { status: 400 });
   }
 
-  const { context: scenarioContext, aiPersona, messages, isGreeting } = body;
+  const { context: scenarioContext, aiPersona, messages, isGreeting, scenarioId } = body;
   if (typeof scenarioContext !== 'string' || typeof aiPersona !== 'string' || !scenarioContext || !aiPersona) {
     return Response.json({ error: 'Missing scenario context or persona' }, { status: 400 });
   }
@@ -62,6 +64,11 @@ Rules: Keep responses to 1-3 sentences. Be realistic. Do NOT be overly helpful u
   const contents: ChatMessage[] = sanitized.length > 0
     ? sanitized
     : [{ role: 'user', parts: [{ text: 'Hello, I am the HVAC technician arriving on site.' }] }];
+
+  // Daily cap: counted before the model runs; a greeting marks the start of a session.
+  if (!(await reserveCall('roleplay', scenarioId, !!isGreeting))) {
+    return Response.json({ error: 'capacity', message: CAP_MESSAGE }, { status: 429 });
+  }
 
   try {
     const response = await ai.models.generateContent({

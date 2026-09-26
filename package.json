@@ -5,6 +5,7 @@
   "type": "module",
   "dependencies": {
     "@google/genai": "^1.0.0",
+    "@netlify/blobs": "^8.1.0",
     "@netlify/functions": "^2.8.0"
   }
 }

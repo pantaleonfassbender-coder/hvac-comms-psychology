@@ -1,5 +1,6 @@
 import type { Context } from '@netlify/functions';
 import { GoogleGenAI, Type } from '@google/genai';
+import { reserveCall, CAP_MESSAGE } from '../lib/usage.mts';
 
 const ai = new GoogleGenAI({});
 const MODEL = 'gemini-2.5-flash';
@@ -99,6 +100,10 @@ The 'conclusion' object MUST be authored by the Psychologist.
 - 'advice': Provide an array containing EXACTLY THREE (3) specific, actionable pieces of behavioral advice for the technician, each naming the model or principle it draws on (e.g. L.A.E.R. Acknowledge, Cialdini's Authority) and giving an example sentence the technician could actually say. If the CRITICAL SAFETY RULE applies, the FIRST advice item must tell the technician to keep the equipment off and tagged per company procedure, and give the sentence they could say to the customer instead.
 
 Format the response strictly using the requested JSON schema. ALL FIELDS ARE REQUIRED.`;
+
+  if (!(await reserveCall('analysis'))) {
+    return Response.json({ error: 'capacity', message: CAP_MESSAGE }, { status: 429 });
+  }
 
   try {
     const response = await ai.models.generateContent({

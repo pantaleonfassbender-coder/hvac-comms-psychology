@@ -49,7 +49,7 @@
         <p class="meta">Last updated: September 26, 2026</p>
 
         <div class="notice">
-            <p><strong>In short:</strong> no account, no cookies, no analytics, nothing stored by this site. The guided scenarios (Base Camp) run entirely in your browser. Only the AI role-play (Five Star Training) sends what you type to an AI model for processing. Please use invented details there, never real customer names, addresses, or phone numbers.</p>
+            <p><strong>In short:</strong> no account, no cookies, no analytics, and nothing about you or your conversations is stored by this site. (It only keeps anonymous daily counts, see below.) The guided scenarios (Base Camp) run entirely in your browser. Only the AI role-play (Five Star Training) sends what you type to an AI model for processing. Please use invented details there, never real customer names, addresses, or phone numbers.</p>
         </div>
 
         <h2 id="provider">Provider</h2>
@@ -70,7 +70,7 @@
             <li>No cookies and no browser storage (no localStorage, sessionStorage, or IndexedDB) set by this site.</li>
             <li>No advertising, no Google Analytics or other tracking by this site.</li>
             <li>No third-party fonts or scripts: typefaces, styling, and icons are served from this site's own domain. (The one exception is Netlify's performance measurement, described below.)</li>
-            <li>No database. Role-play transcripts and debriefs are not saved by this site.</li>
+            <li>Role-play transcripts and debriefs are not saved by this site. The only thing stored is a set of anonymous daily counters (described below).</li>
         </ul>
 
         <h3>Hosting and server logs</h3>
@@ -88,9 +88,12 @@
                 <tr><td>"End Role-play &amp; Request Panel Analysis" (<code>/api/analysis</code>)</td><td>The full transcript of the conversation and the scenario's dispatch context.</td></tr>
             </tbody>
         </table>
-        <p>The server functions forward this text to <strong>Google's Gemini model</strong> (<code>gemini-2.5-flash</code>, Google LLC, Mountain View, CA, USA) through Netlify's infrastructure and return the answer to your browser. The call to Google is made by the server, not by your browser, so Google does not receive your IP address from this site. Google processes the text under its Gemini API terms and may keep it for a limited period to detect abuse. Neither the server functions nor this operator store the text; nothing is written to a database or log file by the site's own code.</p>
+        <p>The server functions forward this text to <strong>Google's Gemini model</strong> (<code>gemini-2.5-flash</code>, Google LLC, Mountain View, CA, USA) through Netlify's infrastructure and return the answer to your browser. The call to Google is made by the server, not by your browser, so Google does not receive your IP address from this site. Google processes the text under its Gemini API terms and may keep it for a limited period to detect abuse. Neither the server functions nor this operator store the text; nothing you type is written to storage or a log file by the site's own code.</p>
         <p>The <strong>"Copy transcript &amp; debrief"</strong> button only copies text to your device's clipboard. Nothing is uploaded.</p>
         <p><strong>Base Camp</strong>, the <strong>Comms Models</strong>, <strong>Key Scenarios</strong> and <strong>podcast</strong> pages send nothing beyond the normal page and audio requests described under hosting.</p>
+
+        <h3 id="usage">Anonymous usage counts and daily limit</h3>
+        <p>To keep the free AI features affordable and to report how the pilot is used, the server functions keep one small record per calendar day (Eastern time) in Netlify's storage service (Netlify Blobs). It contains only totals: the number of AI requests, role-play turns, and debriefs; the number of role-play sessions started per built-in scenario (custom scenarios are counted together as "custom", without their text); and how often the daily limit was reached. It contains <strong>no IP address, no text you entered, no scenario content, no browser details, and no identifier of any kind</strong>, so it cannot be linked to a person. When the daily limit is reached, the AI features pause until midnight Eastern time; Base Camp and all other pages keep working. The counts are kept as long-term pilot statistics.</p>
 
         <h3>Students and minors</h3>
         <p>The site is intended for adult learners and for career and technical education students, including high-school programs used under an instructor's supervision. It is not directed at children under 13 and does not knowingly collect personal information from anyone. No personal information is needed to use any feature.</p>
