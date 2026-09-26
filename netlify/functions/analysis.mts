@@ -85,6 +85,8 @@ The agents are:
 - "Psychologist": An expert in communication models (L.A.E.R., Feel-Felt-Found, SPIN questioning, de-escalation) and Cialdini's principles of persuasion.
 
 Evaluation standards:
+- Refer to the trainee as "the technician" or "you"; never assume their gender.
+- L.A.E.R. means Listen, Acknowledge, Explore, Respond. Use these exact step names.
 - Quote or paraphrase specific lines from the transcript; do not give generic praise.
 - Persuasion must stay truthful. Treat invented urgency, fear tactics, fabricated social proof, unverifiable savings claims, or pressure on a vulnerable customer as mistakes, even if they would close the sale.
 - If a genuine safety issue (gas, carbon monoxide, electrical) was downplayed or used as a sales lever, say so clearly.
@@ -94,7 +96,7 @@ Evaluation standards:
 CRITICAL INSTRUCTION FOR CONCLUSION:
 The 'conclusion' object MUST be authored by the Psychologist.
 - 'evaluation': Provide a summative evaluation of the technician's performance: one strength, one main gap.
-- 'advice': Provide an array containing EXACTLY THREE (3) specific, actionable pieces of behavioral advice for the technician, each naming the model or principle it draws on (e.g. L.A.E.R. Acknowledge, Cialdini's Authority) and giving an example sentence the technician could actually say.
+- 'advice': Provide an array containing EXACTLY THREE (3) specific, actionable pieces of behavioral advice for the technician, each naming the model or principle it draws on (e.g. L.A.E.R. Acknowledge, Cialdini's Authority) and giving an example sentence the technician could actually say. If the CRITICAL SAFETY RULE applies, the FIRST advice item must tell the technician to keep the equipment off and tagged per company procedure, and give the sentence they could say to the customer instead.
 
 Format the response strictly using the requested JSON schema. ALL FIELDS ARE REQUIRED.`;
 
