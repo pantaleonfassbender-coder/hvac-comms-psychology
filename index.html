@@ -71,6 +71,7 @@
                     <button type="button" class="nav-link font-medium text-sm" onclick="navigate('podcast')">HVAC Psychology</button>
                     <button type="button" class="nav-link font-medium text-sm" onclick="navigate('models')">Comms Models</button>
                     <button type="button" class="nav-link font-medium text-sm" onclick="navigate('scenarios')">Key Scenarios</button>
+                    <button type="button" class="nav-link font-medium text-sm" onclick="navigate('about')">About</button>
                     <button onclick="navigate('basecamp')" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-md font-medium text-sm transition-colors shadow-sm">
                         Base Camp
                     </button>
@@ -92,6 +93,7 @@
             <button type="button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('podcast'); toggleMobileMenu()">HVAC Psychology</button>
             <button type="button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('models'); toggleMobileMenu()">Comms Models</button>
             <button type="button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('scenarios'); toggleMobileMenu()">Key Scenarios</button>
+            <button type="button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('about'); toggleMobileMenu()">About</button>
             <button type="button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-slate-800 hover:bg-slate-100 nav-link" onclick="navigate('basecamp'); toggleMobileMenu()">Base Camp</button>
             <button type="button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-amber-600 hover:bg-amber-50 nav-link flex items-center" onclick="navigate('fivestar'); toggleMobileMenu()"><i data-lucide="star" class="w-4 h-4 mr-1 fill-current"></i> Five Star Training</button>
         </div>
@@ -232,7 +234,7 @@
         <div id="view-scenarios" class="section-view fade-in bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Typical Interaction Situations</h2>
-                <p class="mt-4 text-xl text-gray-600">Every call is different, but they generally fall into one of four psychological profiles, plus the safety call that overrides them all. Open a card for the outline, then practice it.</p>
+                <p class="mt-4 text-xl text-gray-600">Every call is different, but they generally fall into one of these four psychological profiles. Open a card for the outline, then practice it.</p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
@@ -340,41 +342,49 @@
                         </div>
                     </div>
                 </details>
-                <!-- Scenario 5: overrides the other four -->
-                <details class="scenario-card group border-2 border-orange-300 rounded-lg hover:border-orange-500 open:border-orange-500 transition-colors lg:col-span-2 bg-orange-50/40">
-                    <summary class="p-6 cursor-pointer list-none">
-                        <div class="flex items-center mb-4">
-                            <div class="bg-orange-100 p-2 rounded-full mr-4"><i data-lucide="siren" class="text-orange-600 w-6 h-6"></i></div>
-                            <h3 class="text-xl font-bold flex-grow">5. The Safety Call (Gas Smell)</h3>
-                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180"></i>
-                        </div>
-                        <p class="text-gray-600"><strong>The Vibe:</strong> Fear, denial or impatience. The customer wants comfort back; you have to put safety first. This one overrides the other four.</p>
-                        <span class="mt-3 inline-block text-sm font-semibold text-orange-600 group-open:hidden">Show outline &rarr;</span>
-                    </summary>
-                    <div class="px-6 pb-6 space-y-4 text-sm text-gray-700 border-t border-orange-100 pt-4">
-                        <div><h4 class="font-bold text-gray-900 mb-1">What's going on for the customer</h4><p>"It's been like that for weeks and nothing happened." People get used to a smell and underestimate the risk (normalization). Add cold, tired kids and a fear of big bills, and the customer may push hard for a quick fix or suspect you of selling.</p></div>
-                        <div><h4 class="font-bold text-gray-900 mb-1">Your goal</h4><p>Make the home safe first, then make the customer understand why, without panic and without giving in. The customer should end the call safe, informed, and with a plan for tonight.</p></div>
-                        <div><h4 class="font-bold text-gray-900 mb-1">Models that fit</h4><p>Calm safety disclosure: acknowledge, state the fact, say what you have done, show the evidence. Authority through the detector reading, not through volume. Then L.A.E.R.'s "Respond": concrete, safe options for the customer's real problem.</p></div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div><h4 class="font-bold text-green-700 mb-1">Do</h4><ul class="space-y-1">
-                                <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Make it safe first, talk second: follow your company's shut-off and tagging procedure.</span></li>
-                                <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>"I found gas leaking at the furnace connection. I've shut the gas off to it, so you're safe right now."</span></li>
-                                <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Show the detector reading; explain the next step and what it costs before you do it.</span></li>
-                                <li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Help with tonight: safe temporary heat, who to call if the smell returns.</span></li>
-                            </ul></div>
-                            <div><h4 class="font-bold text-red-700 mb-1">Avoid</h4><ul class="space-y-1">
-                                <li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Relighting "just for tonight", or accepting a signed waiver for a known leak.</span></li>
-                                <li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Dramatizing ("death trap") or using the hazard to push a system sale.</span></li>
-                                <li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>"Those are the rules": own the decision instead of hiding behind policy.</span></li>
-                            </ul></div>
-                        </div>
-                        <div class="bg-amber-50 border-l-4 border-amber-500 p-3 rounded-r"><strong class="text-gray-900">Safety line:</strong> This page trains the conversation, not the procedure. A strong gas smell in the house means nobody operates switches or appliances; everyone leaves, and the gas utility's emergency line or 911 is called from outside. Always follow your company's procedure, your instructor, and local code.</div>
-                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
-                            <button type="button" onclick="practiceScenario('basecamp', 'gas-smell')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-md">Practice in Base Camp</button>
-                            <button type="button" onclick="practiceScenario('fivestar', 'gas-smell')" class="flex-1 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold py-2 px-4 rounded-md">AI role-play (Five Star)</button>
-                        </div>
+            </div>
+        </div>
+
+        <!-- ==================== ABOUT VIEW ==================== -->
+        <div id="view-about" class="section-view fade-in max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">About the Author</h2>
+                <p class="mt-4 text-xl text-gray-600">Why a psychology-trained consultant builds training for the skilled trades.</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md border border-gray-100 p-8">
+                <div class="flex items-center mb-6">
+                    <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                        <i data-lucide="graduation-cap" class="w-7 h-7 text-hvac-blue"></i>
                     </div>
-                </details>
+                    <div>
+                        <h3 class="text-2xl font-bold text-gray-900">Dr. Pantaleon Fassbender</h3>
+                        <p class="text-gray-500">Founder, Twisters Management Consulting LLC &middot; Williston, Florida</p>
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-gray-700 leading-relaxed">
+                    <p>Pantaleon Fassbender works where psychology meets professional practice: how adults learn on the job, and how the skills that are hardest to teach from a textbook (communication, judgment, composure under pressure) can be built deliberately.</p>
+                    <p>He holds a Ph.D. and a Master of Science in Psychology from the University of Bonn, Germany, as well as a Master of Arts in Theological Studies from the same university. He spent eleven years with KPMG Germany before founding his own consulting practice in 2010. Today he runs Twisters Management Consulting LLC in Williston, Florida, together with Claudia C. Soestmeyer.</p>
+                    <p>Across his consulting and coaching work, for international companies such as Siemens Energy, Airbus, Bombardier, Philips and Sony as well as for small businesses, health-care providers and non-profits, the common thread has been competency development: helping experienced professionals see their own behavior clearly and practice something better. For more than ten years that has included experiential, horse-assisted coaching, a setting that gives immediate and honest feedback on body language and personal impact.</p>
+                    <p>His approach to adult learning is simple to state and demanding to deliver:</p>
+                    <ul class="space-y-2 pl-1">
+                        <li class="flex items-start"><i data-lucide="check" class="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0"></i><span><strong>Start from experience.</strong> Adult learners bring real situations; training should begin with them, not with theory.</span></li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0"></i><span><strong>Practice beats lecture.</strong> A skill is built by doing it, in a safe place to get it wrong.</span></li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0"></i><span><strong>Feedback must be immediate and specific.</strong> "Good job" teaches nothing; "you defended the price before the customer felt heard" does.</span></li>
+                        <li class="flex items-start"><i data-lucide="check" class="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0"></i><span><strong>Reflection turns an experience into a competency.</strong> The debrief matters as much as the exercise.</span></li>
+                    </ul>
+                    <p>HVAC ProComm applies that approach to the skilled trades: short, realistic practice, a safe place to fail, and a structured debrief. He also develops open, web-based learning tools in other fields, and welcomes feedback from instructors who use them.</p>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-gray-100 flex flex-col sm:flex-row gap-3">
+                    <a href="https://www.twistersmanagementconsultingllc.com/" target="_blank" rel="noopener" class="flex-1 inline-flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-white font-semibold py-3 px-4 rounded-md">
+                        <i data-lucide="external-link" class="w-4 h-4 mr-2"></i> Twisters Management Consulting LLC
+                    </a>
+                    <a href="mailto:pantaleonfassbender@gmail.com" class="flex-1 inline-flex items-center justify-center bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-semibold py-3 px-4 rounded-md">
+                        <i data-lucide="mail" class="w-4 h-4 mr-2"></i> Contact
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -431,7 +441,7 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-8">
                     <h2 class="text-3xl font-extrabold text-slate-800">Base Camp</h2>
-                    <p class="mt-2 text-gray-600">Guided multiple-choice role-plays to build foundational skills.</p>
+                    <p class="mt-2 text-gray-600">Guided five-turn role-plays with instant feedback and a final debrief.</p>
                 </div>
                 <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200 flex flex-col" style="min-height: 500px;">
                     <div class="bg-slate-800 text-white px-6 py-4 flex justify-between items-center">
@@ -538,125 +548,245 @@
         }
 
         // --- Shared Scenario Data ---
+        // Each Base Camp run has five turns with three responses; exactly one per turn is `isGood`.
+        // `debrief` feeds the final feedback screen. `context`/`aiPersona` drive the Five Star AI role-play.
         const coreScenarios = [
             {
                 id: 'repair-shock', icon: 'flame', color: 'text-red-500',
                 title: "The Price Shock", type: "Emergency Repair",
-                context: "It is 95 degrees outside. The customer's AC has been down for 24 hours. You've diagnosed a dead condenser fan motor and a blown dual run capacitor. Total repair cost: $850.",
+                context: "It is 95 degrees outside. The customer's AC has been down for 24 hours. You've diagnosed a seized condenser fan motor and a failed dual run capacitor. Total repair cost: $850.",
                 aiPersona: "You are a hot, sweaty, frustrated customer. You think $850 is a total rip-off for what looks like simple parts. You are defensive but ultimately need cold air.",
                 steps: [
                     {
-                        npc: "Customer: 'Eight hundred and fifty dollars?! For a fan and a capacitor? That's highway robbery! I saw a motor online for $120. Are you guys just trying to rip me off because it's hot?'",
+                        npc: "Eight hundred and fifty dollars?! For a fan and a capacitor? That's highway robbery! I saw a motor online for $120. Are you guys just trying to rip me off because it's hot?",
                         options: [
-                            { text: "Ma'am, it's not just a fan and a capacitor. Our pricing includes labor, the truck, the warranty...", isGood: false, model: "Poor Approach", feedback: "Defensive. You are arguing about the invoice before the customer feels heard (skips Listen and Acknowledge in L.A.E.R.)." },
-                            { text: "I completely understand why that number is shocking, especially when it's this hot...", isGood: true, model: "Feel, Felt, Found", feedback: "Good start: you acknowledge the feeling and the heat before defending the price (the 'Feel' step).", nextStep: 1 }
+                            { text: "Ma'am, it's not just a fan and a capacitor. Our pricing includes labor, the truck, the warranty...", isGood: false, model: "Defending the Invoice", feedback: "You are arguing about the price before the customer feels heard. That skips Listen and Acknowledge in L.A.E.R. and makes the conversation a fight." },
+                            { text: "I completely understand why that number is a shock, especially after a day in this heat. Can I walk you through exactly what failed and what the price covers?", isGood: true, model: "L.A.E.R.: Acknowledge", feedback: "You name the feeling and the situation before touching the number, then ask permission to explain. The customer's defenses come down because you are not attacking back." },
+                            { text: "Online parts aren't the same quality. You get what you pay for.", isGood: false, model: "Dismissing the Concern", feedback: "Even if it's true, it tells the customer their research was foolish. People who feel judged stop listening." }
                         ]
                     },
                     {
-                        npc: "Customer: 'It's just so much money right before school starts. Is this absolutely necessary? Can't we just patch it up for now?'",
+                        npc: "Fine, walk me through it. But I'm telling you, it's a lot.",
                         options: [
-                            { text: "Look, if we don't fix this now, your compressor is going to burn out...", isGood: false, model: "Fear Tactics", feedback: "Fear tactics undo the trust you just built. If there is a real risk to the compressor, explain it calmly, with evidence, as information rather than a threat." },
-                            { text: "...What we've found is that trying to run the system with these failing components...", isGood: true, model: "The Pivot", feedback: "Good use of 'Found': you share what you have actually seen happen, then let the customer decide." }
+                            { text: "The capacitor had low microfarads and the motor's windings are open, so it's locked up and pulling amps.", isGood: false, model: "Jargon", feedback: "Accurate, but meaningless to most customers. Jargon under stress sounds like you're hiding something behind technical words." },
+                            { text: "Honestly, it's standard pricing. Everybody charges about this.", isGood: false, model: "Vague Social Proof", feedback: "\"Everybody\" is unverifiable and the customer knows it. It answers \"why so much?\" with \"because\"." },
+                            { text: "Here's the old capacitor. See the bulged top? It helps the motors start. And this fan motor has seized, so the outdoor unit can't get rid of heat. The price covers both parts, the installation, and our warranty on the work.", isGood: true, model: "Authority through Transparency", feedback: "You show the evidence and explain what each part does in plain words. Authority comes from making your reasoning visible, not from your title." }
+                        ]
+                    },
+                    {
+                        npc: "It's just so much money right before school starts. Can't you just patch it up for now?",
+                        options: [
+                            { text: "Many people I see feel exactly the same this time of year. What I've found is that running with a seized fan motor puts the compressor at real risk, so I can't recommend a patch. But let me show you the options we do have.", isGood: true, model: "Feel, Felt, Found", feedback: "You normalize the feeling (felt), share an honest professional finding (found) and move straight to options, so the \"no\" to a patch doesn't feel like a dead end." },
+                            { text: "If we don't fix this now, your compressor is going to burn out and that's a $4,000 job.", isGood: false, model: "Fear Tactics", feedback: "The risk may be real, but delivered as a threat it sounds like pressure. Explain risks calmly, as information, and let the customer weigh them." },
+                            { text: "Sure, I can just swap the capacitor and we'll see how long it lasts.", isGood: false, model: "Premature Concession", feedback: "You are agreeing to something you know won't work. It sets up a callback, a second bill and a customer who trusts you less." }
+                        ]
+                    },
+                    {
+                        npc: "What kind of options?",
+                        options: [
+                            { text: "Well, the only option is to pay today. We don't do discounts.", isGood: false, model: "Closing the Door", feedback: "Rigid and cold. Even if there's no discount, there are usually choices: timing, payment, warranty coverage." },
+                            { text: "If you sign right now I can knock $200 off, but only today.", isGood: false, model: "Artificial Scarcity", feedback: "A sudden discount tells the customer your price was never real, and \"only today\" is pressure. It undoes the trust you just built." },
+                            { text: "First, let me check whether that motor is still under the manufacturer's parts warranty. If it is, you'd only pay for labor. If not, we offer a payment plan, and I'll show you the terms in writing so you can decide without pressure.", isGood: true, model: "Reciprocity: Genuine Extra Effort", feedback: "Checking the warranty is real work done in the customer's interest. That is reciprocity done honestly: you give first, without a trick attached." }
+                        ]
+                    },
+                    {
+                        npc: "Okay... the warranty covers the motor, so it's just labor and the capacitor. Let's do it. How long will it take?",
+                        options: [
+                            { text: "About an hour. I'll have cold air running before I leave, then I'll show you the readings so you can see it's working right. If anything seems off tonight, here's how to reach us.", isGood: true, model: "Closing the Loop", feedback: "Clear time, a visible result and a way to reach you. Setting expectations at the end keeps the relief from turning into doubt later." },
+                            { text: "Great, sign here. And while I'm here, you should really think about a whole new system.", isGood: false, model: "Upsell at the Wrong Moment", feedback: "The customer just agreed after a stressful talk. Pitching more right now makes the whole conversation feel like a sales setup." },
+                            { text: "Depends. Could be an hour, could be three.", isGood: false, model: "Vague Expectations", feedback: "Uncertainty brings the anxiety right back. Give your best estimate and say what could change it." }
                         ]
                     }
-                ]
+                ],
+                debrief: {
+                    summary: "An emergency call is won or lost in the first minute: the customer can't hear an explanation until they feel heard.",
+                    takeaways: [
+                        "Acknowledge the situation before you defend the price.",
+                        "Show the failed part; explain it in one plain sentence.",
+                        "Offer real options (warranty, payment, timing) instead of pressure or discounts."
+                    ]
+                }
             },
             {
                 id: 'maint-upgrade', icon: 'trending-up', color: 'text-green-500',
                 title: "The Old Clunker", type: "Routine Maintenance",
-                context: "You are doing a standard Spring AC tune-up. The system is 14 years old, uses R-22 refrigerant, and is struggling to reach optimal subcooling. The customer is casually watching you work.",
-                aiPersona: "You are a casual homeowner. You think the AC is fine because it blows cold air. You are unaware of R-22 phaseouts or efficiency issues.",
+                context: "You are doing a standard spring AC tune-up. The system is 14 years old, uses R-22 refrigerant, and your readings suggest it is low on charge. The customer is casually watching you work.",
+                aiPersona: "You are a casual homeowner. You think the AC is fine because it blows cold air. You are unaware of the R-22 phase-out or efficiency issues. The upstairs bedroom is always warmer and you added a window unit last summer.",
                 steps: [
                     {
-                        npc: "Customer: 'Well, she's old, but she still blows cold air! Should be good for another summer, right?'",
+                        npc: "Well, she's old, but she still blows cold air! Should be good for another summer, right?",
                         options: [
-                            { text: "Actually, it's 14 years old and uses R-22 which is illegal to make now...", isGood: false, model: "Feature Dumping", feedback: "Feature dumping. Technically true (R-22 can no longer be produced or imported in the U.S.), but leading with it sounds like a sales pitch before you know what the customer cares about." },
-                            { text: "Yeah, she's definitely a survivor! While I'm finishing up checking these pressures, can I ask you—how has the comfort level been...", isGood: true, model: "Consultative", feedback: "Consultative opening: you affirm the customer and ask about their experience before offering an opinion.", nextStep: 1 }
+                            { text: "Actually, it's 14 years old and uses R-22, which can't even be produced anymore. You're on borrowed time.", isGood: false, model: "Feature Dumping", feedback: "Technically true (R-22 production and import ended in the U.S. in 2020), but leading with it sounds like a sales pitch before you know what the customer cares about." },
+                            { text: "She's definitely a survivor! While I finish checking these pressures, can I ask how the comfort has been around the house this summer?", isGood: true, model: "Consultative Opening (SPIN)", feedback: "You affirm the customer and ask about their experience before giving an opinion. Situation and problem questions come first in SPIN." },
+                            { text: "Yep, you're all set. See you next spring.", isGood: false, model: "Withholding Findings", feedback: "Your readings show a problem. Saying nothing isn't neutral: when the system fails, the customer will feel you knew and didn't tell them." }
                         ]
                     },
                     {
-                        npc: "Customer: 'Now that you mention it, the upstairs master bedroom always stays about 4 degrees warmer. We ended up putting a window unit in there last summer.'",
+                        npc: "Now that you mention it, the upstairs master bedroom always stays about 4 degrees warmer. We ended up putting a window unit in there last summer.",
                         options: [
-                            { text: "Oh, well a new variable-speed inverter system will fix that right up...", isGood: false, model: "Premature Pitch", feedback: "Premature pitch. You jumped to a solution before exploring what the problem costs the customer (the 'Implication' step in SPIN questioning)." },
-                            { text: "I hear that a lot with older single-stage systems. Does having to run that loud window unit disrupt your sleep?", isGood: true, model: "Consultative", feedback: "Implication question: you connect the technical issue to something the customer cares about (sleep, comfort) using their own words." }
+                            { text: "A new variable-speed inverter system would fix that right up.", isGood: false, model: "Premature Pitch", feedback: "You jumped to a solution before exploring what the problem costs the customer. That skips the Implication step in SPIN." },
+                            { text: "That's probably your ductwork. Not really my department.", isGood: false, model: "Deflecting", feedback: "The customer just told you what matters to them. Brushing it off tells them you only care about the box you came to service." },
+                            { text: "I hear that a lot with older single-stage systems. How does that window unit work out at night? Does it affect your sleep?", isGood: true, model: "Implication Question (SPIN)", feedback: "You connect the technical issue to something the customer cares about, using their own words. Now they are describing the problem's real cost." }
+                        ]
+                    },
+                    {
+                        npc: "Honestly, it's loud, and my wife hates it. And our electric bill in July was brutal.",
+                        options: [
+                            { text: "Let me grab my tablet. We've got a great promotion running this month.", isGood: false, model: "Jumping to the Offer", feedback: "The customer is opening up and you switch to selling. Keep listening; a summary is worth more than a brochure here." },
+                            { text: "So the upstairs is uncomfortable, the window unit keeps you up, and the bills are high. Did I get that right? If there were a way to fix the upstairs and bring the bills down, would that be worth looking at?", isGood: true, model: "Summarize + Need-Payoff", feedback: "Summarizing shows you listened and lets the customer confirm (commitment and consistency). The need-payoff question lets them state the value in their own words." },
+                            { text: "Yeah, window units are energy hogs. That's on you.", isGood: false, model: "Blaming", feedback: "Blame makes people defend their choices instead of considering new ones." }
+                        ]
+                    },
+                    {
+                        npc: "I guess so. But what are we talking about, money-wise? I'm not looking to drop ten grand.",
+                        options: [
+                            { text: "Don't worry about money. We have financing for everybody.", isGood: false, model: "Dismissing the Budget", feedback: "The customer set a clear limit. \"Don't worry\" ignores it, and financing is not an answer to \"how much?\"" },
+                            { text: "Fair question. There are a few paths, from improving the airflow upstairs to a full replacement down the road. Before I throw out numbers, I'd like to measure the upstairs supply and return. Then I can give you real options with real prices, not a guess.", isGood: true, model: "Diagnosis Before Price", feedback: "You respect the budget, show that options exist at different price levels, and promise real numbers after measuring. Honest expectation setting." },
+                            { text: "A new system runs anywhere from six to twenty thousand dollars.", isGood: false, model: "Sticker Shock", feedback: "A huge range with no context confirms the customer's fear and ends the conversation." }
+                        ]
+                    },
+                    {
+                        npc: "That sounds fair. And for today? Is the system okay?",
+                        options: [
+                            { text: "Honestly, it could die any day. I wouldn't wait.", isGood: false, model: "Fear without Evidence", feedback: "You have no evidence that failure is imminent. Invented urgency is manipulation, and customers can tell." },
+                            { text: "It's fine for now.", isGood: false, model: "Hiding the Finding", feedback: "It isn't quite fine; your readings show low charge. Leaving it out protects the mood today and damages trust later." },
+                            { text: "It's running, but it's low on refrigerant, and that usually means a small leak somewhere. I'll put the readings on your report. Since R-22 is expensive now, I'd find the leak before anyone adds more. No decision needed today.", isGood: true, model: "Honest Report, No Pressure", feedback: "You report the finding, explain what it means, give a sensible next step and explicitly take the pressure off. That's what makes a customer call you back." }
                         ]
                     }
-                ]
+                ],
+                debrief: {
+                    summary: "In a routine visit the customer isn't looking for advice, so your questions earn you the right to give it.",
+                    takeaways: [
+                        "Ask about comfort before you mention age or refrigerant.",
+                        "Summarize what you heard; let the customer name the value.",
+                        "Report every finding honestly, and take the pressure off."
+                    ]
+                }
             },
             {
                 id: 'second-opinion', icon: 'home', color: 'text-purple-500',
                 title: "The Second Opinion", type: "Competitor Quote",
-                context: "Customer had 'Big Name HVAC' out yesterday. They condemned the 10-year-old furnace, cited a cracked heat exchanger, and quoted $12,000 for a replacement. The customer called you, highly suspicious.",
-                aiPersona: "You are very suspicious of the HVAC industry. The last guy tried to hard-sell you a $12k system in 5 minutes using fear tactics.",
+                context: "The customer had 'Big Name HVAC' out yesterday. They condemned the 10-year-old furnace, cited a cracked heat exchanger, and quoted $12,000 for a replacement. The customer called you, highly suspicious.",
+                aiPersona: "You are very suspicious of the HVAC industry. The last company tried to sell you a $12k system in 5 minutes using fear tactics.",
                 steps: [
                     {
-                        npc: "Customer: 'The last guy was in there for 5 minutes and told me if I turn my heat on, we will all die of carbon monoxide. Are they just trying to scare me?'",
+                        npc: "The last guy was in there for 5 minutes and told me if I turn my heat on, we'll all die of carbon monoxide. Are they just trying to scare me?",
                         options: [
-                            { text: "Wow, Big Name HVAC strikes again. They do this to everyone...", isGood: false, model: "Bashing", feedback: "Never bash a competitor. It sounds self-serving, and if their diagnosis turns out to be right you have just told the customer to ignore a safety warning." },
-                            { text: "I completely understand why you'd be concerned. I'm going to put my analyzer on it, and I invite you to look at the screen with me.", isGood: true, model: "Radical Transparency", feedback: "Validation plus transparency: you take the fear seriously and let the customer see the measurement themselves. A cracked heat exchanger is a real carbon-monoxide risk, so the test result, not either company, decides.", nextStep: 1 }
+                            { text: "Wow, Big Name HVAC strikes again. They do this to everyone.", isGood: false, model: "Bashing the Competitor", feedback: "It sounds self-serving, and if their diagnosis turns out to be right, you have just told the customer to ignore a safety warning." },
+                            { text: "Heat exchangers almost never crack. I'm sure you're fine.", isGood: false, model: "Premature Reassurance", feedback: "You are dismissing a real carbon-monoxide risk before testing anything. Reassurance without evidence is as bad as fear without evidence." },
+                            { text: "I completely understand why you'd want a second look. I'm going to test it properly, and I invite you to watch the screen with me.", isGood: true, model: "Radical Transparency", feedback: "You take the fear seriously without judging anyone, and you let the evidence decide. Inviting the customer to watch turns suspicion into partnership." }
                         ]
                     },
                     {
-                        npc: "Customer (Relieved): 'Thank you. I'd really appreciate that. If it IS broken, can you guys beat $12,000?'",
+                        npc: "Thank you, I'd really appreciate that. If it IS broken, can you guys beat $12,000?",
                         options: [
-                            { text: "Oh easily, we can probably do it for $8,000. We don't have their massive overhead.", isGood: false, model: "Premature Price Drop", feedback: "Premature price drop. You are quoting before you have diagnosed anything, which turns your work into a commodity." },
-                            { text: "We have options for almost every budget. Let's first confirm if you actually need a system.", isGood: true, model: "Consultative Delay", feedback: "Expectation setting: diagnosis first, price second." }
+                            { text: "We have options for almost every budget. Let's first confirm whether you need a new system at all.", isGood: true, model: "Diagnosis Before Price", feedback: "You acknowledge the question, signal that options exist, and keep the order right: diagnosis first, price second." },
+                            { text: "Easily. We can probably do it for $8,000. We don't have their overhead.", isGood: false, model: "Premature Price Drop", feedback: "You are quoting before diagnosing anything, which turns your work into a commodity and makes the diagnosis look like a formality." },
+                            { text: "I don't deal with prices. That's the office.", isGood: false, model: "Passing the Buck", feedback: "The customer asked a fair question. You can postpone the number without refusing the topic." }
+                        ]
+                    },
+                    {
+                        npc: "(After your inspection) So what did you find? Be honest with me.",
+                        options: [
+                            { text: "It's hard to say. Could go either way.", isGood: false, model: "Hedging", feedback: "You have data. Vagueness here makes the customer think you are either unsure or hiding something." },
+                            { text: "Let me show you. This camera image shows a crack here, right next to the burner, and the CO reading in the flue rises when the blower comes on. I have to be straight with you: the first company was right about the crack.", isGood: true, model: "Evidence First, Credit Where Due", feedback: "You show the evidence before the conclusion and give the competitor credit. Honesty that costs you something is the most convincing kind." },
+                            { text: "Yep, it's cracked. You need a new furnace.", isGood: false, model: "Blunt Verdict", feedback: "Correct, but without showing evidence it sounds exactly like the first company. The customer came to you for proof." }
+                        ]
+                    },
+                    {
+                        npc: "So they were right... I feel like an idiot for doubting them. And now I don't have heat.",
+                        options: [
+                            { text: "Well, you should have listened the first time.", isGood: false, model: "Shaming", feedback: "The customer is embarrassed and worried. Shame makes them withdraw, and they'll associate that feeling with you." },
+                            { text: "If you want, I can run it a few more days while you decide.", isGood: false, model: "Compromising Safety", feedback: "Never. A cracked heat exchanger is a carbon-monoxide risk. Kindness that puts a family in danger isn't kindness." },
+                            { text: "You're not an idiot. Checking was smart, and now you know for sure. For your safety I have to leave the furnace off and tag it. Let's talk about how you stay warm tonight and what your options are.", isGood: true, model: "Normalize + Safety Boundary", feedback: "You remove the shame, hold the safety line firmly, and move straight to the customer's real problem: tonight and the next step." }
+                        ]
+                    },
+                    {
+                        npc: "Okay. What are my options? Should I just call the other company back?",
+                        options: [
+                            { text: "That's completely your call. I'll write up my findings with the photos and readings so you can compare quotes fairly. If you'd like a quote from us too, I'll give you two or three options with clear prices.", isGood: true, model: "Customer Autonomy", feedback: "You hand the decision back to the customer and equip them to make it. Documentation they can use anywhere is reciprocity without strings, and it is often what wins the job." },
+                            { text: "Don't call them. We'll beat whatever they quoted.", isGood: false, model: "Price War", feedback: "You compete on price instead of trust, the exact thing you avoided all call." },
+                            { text: "Today only, I can take 20% off if you sign now.", isGood: false, model: "Pressure Close", feedback: "After an honest diagnosis, a pressure close makes the customer wonder whether the honesty was a tactic." }
                         ]
                     }
-                ]
+                ],
+                debrief: {
+                    summary: "A second opinion isn't about beating the other company. It's about being the technician who lets the evidence decide.",
+                    takeaways: [
+                        "Never bash a competitor, and never dismiss a safety warning untested.",
+                        "Show the evidence before the verdict, even when it proves the other company right.",
+                        "Hold the safety line kindly, then give the decision back to the customer."
+                    ]
+                }
             },
             {
                 id: 'system-replacement', icon: 'pie-chart', color: 'text-teal-600',
                 title: "The Skeptical Shopper", type: "System Replacement",
-                context: "You are reviewing a quote for a new high-efficiency system with a homeowner. They are heavily focused on the bottom-line price and are questioning the ROI.",
-                aiPersona: "You are an analytical, price-conscious shopper. You don't see why a high SEER unit is worth $3,000 more than a basic unit.",
+                context: "You are reviewing a replacement quote with a homeowner. Your recommended variable-speed system costs $3,000 more than the basic single-stage option. Earlier the homeowner mentioned that the upstairs feels clammy all summer. They are focused on price and question the ROI.",
+                aiPersona: "You are an analytical, price-conscious shopper. You don't see why the variable-speed system is worth $3,000 more than the basic unit. Another company told you a premium system 'pays for itself in five years' and you doubt it.",
                 steps: [
                     {
-                        npc: "Customer: 'Look, your quote is $3,000 higher than the baseline 14-SEER option. What is the actual return on investment here?'",
+                        npc: "Look, your recommended system is $3,000 more than the basic one. What's the actual return on investment here?",
                         options: [
-                            { text: "Well, the higher end model has a variable speed compressor, better SEER rating...", isGood: false, model: "Feature Dumping", feedback: "Jargon with no connection to what the customer said they need." },
-                            { text: "If you want to save money right now, you can go with the cheaper one, but you'll end up paying for it later.", isGood: false, model: "Passive Aggressive", feedback: "Passive-aggressive. It puts you against the customer instead of beside them." },
-                            { text: "That's a very fair question. When we walked the house earlier, you mentioned the severe humidity issues upstairs. If this system could completely resolve those...", isGood: true, model: "Need-Payoff", feedback: "Need-payoff (SPIN): you tie the extra cost to a problem the customer named themselves." }
-                        ]
-                    }
-                ]
-            }
-            ,
-            {
-                id: 'gas-smell', icon: 'siren', color: 'text-orange-600',
-                title: "The Gas Smell", type: "Safety Call",
-                context: "Winter evening, 30 degrees outside. No-heat call: the furnace won't light. The customer mentioned a faint gas smell in the utility closet. Your combustible gas detector confirms a leak at the furnace's gas connector. You have shut off the gas to the furnace per company procedure. The rest of the house reads clear.",
-                aiPersona: "You are a tired parent with two young kids and a cold house. You want the heat back on tonight. You think the technician may be overcautious or setting up a big sale. You push for a quick relight and offer to sign something. You only calm down if the tech stays calm, shows you the evidence, and offers practical options for tonight. If the tech agrees to turn the furnace back on despite the leak, act relieved.",
-                steps: [
-                    {
-                        npc: "Customer: 'Please just get it running tonight. It's freezing and the kids are already in bed with their coats on. That smell's been there for weeks, it can't be that bad.'",
-                        options: [
-                            { text: "It's a pretty small leak. I'll relight it for tonight and we'll come back Monday to fix the connector.", isGood: false, model: "Minimizing the Hazard", feedback: "Never. A confirmed gas leak is not a scheduling question. Relighting knowingly puts the family at risk of fire or explosion and makes you and your company responsible for what happens." },
-                            { text: "Ma'am, this is a death trap. You're lucky the house hasn't blown up.", isGood: false, model: "Fear Escalation", feedback: "The facts are serious enough on their own. Dramatic language causes panic or makes you sound like you are selling. State what you found, what you did, and what happens next, calmly." },
-                            { text: "I hear you, and a cold house with kids is hard. I have to be straight with you: my detector confirms gas leaking at the furnace connection. I've shut off the gas to the furnace so the house is safe. Let me show you the reading, then we'll figure out tonight together.", isGood: true, model: "Calm Safety Disclosure", feedback: "Acknowledge, then state the fact plainly, then say what you have already done to make it safe, then show the evidence. Calm plus evidence is what makes a frightened customer trust you.", nextStep: 1 }
+                            { text: "Well, the higher-end model has a variable-speed compressor, a better efficiency rating, a communicating thermostat...", isGood: false, model: "Feature Dumping", feedback: "A list of features with no connection to what the customer said they need." },
+                            { text: "That's a very fair question. When we walked the house, you mentioned the upstairs feels clammy. Can I show you how each option handles that first, and then the energy numbers?", isGood: true, model: "Need-Payoff (SPIN)", feedback: "You validate the question and tie the extra cost to a problem the customer named themselves." },
+                            { text: "If you want to save money now, go with the cheaper one. You'll pay for it later, though.", isGood: false, model: "Passive-Aggressive", feedback: "It puts you against the customer instead of beside them." }
                         ]
                     },
                     {
-                        npc: "Customer: 'So we just freeze? Look, I'll sign a waiver, whatever you need. Just turn it back on and I'll take responsibility.'",
+                        npc: "The humidity, yes. It's clammy all summer. But will the expensive one really fix that?",
                         options: [
-                            { text: "Okay, if you sign here that you declined the repair, I can turn it back on.", isGood: false, model: "Waiver for a Hazard", feedback: "A signature does not make a gas leak safe, and it does not protect you. A known leak stays off: tag it per your company's procedure, no matter what the customer offers to sign." },
-                            { text: "Sorry, those are the rules. It's not my call.", isGood: false, model: "Hiding Behind Policy", feedback: "You are right to keep it off, but hiding behind 'rules' sounds like you don't care. Own the decision and move to what you can do." },
-                            { text: "I can't turn it on with a leak. I wouldn't for my own family. Here's what I can do: the fix is a new connector, and I'll check the truck for one right now. If I don't have it, let's make tonight safe: electric space heaters in the rooms you're using, away from bedding and curtains, and never the oven or a grill for heat.", isGood: true, model: "Firm Boundary + Options", feedback: "The boundary is non-negotiable, and you say it as a personal commitment, not a policy. Then you move straight to the customer's real problem, a safe warm night, with concrete options. That is L.A.E.R.'s 'Respond' done right." }
+                            { text: "Guaranteed. You'll never feel humidity again.", isGood: false, model: "Overpromising", feedback: "Comfort depends on the house, the ducts and the settings. A guarantee you can't keep becomes a complaint later." },
+                            { text: "The variable-speed unit runs longer at low speed, which pulls more moisture out of the air. The basic unit cools fast and shuts off, so more humidity stays behind. I can't promise a number, but for a clammy upstairs that difference usually matters more than the efficiency rating.", isGood: true, model: "Translating Features into Benefits", feedback: "You explain the mechanism in plain words, connect it to the customer's problem and are honest about the limits." },
+                            { text: "It has two-stage dehumidification and ECM blower control.", isGood: false, model: "Jargon", feedback: "True, but it answers a question the customer didn't ask, in a language they don't speak." }
+                        ]
+                    },
+                    {
+                        npc: "And the energy savings? The other company said a premium system pays for itself in five years.",
+                        options: [
+                            { text: "Oh, even faster than that. Probably three.", isGood: false, model: "Topping the Claim", feedback: "Outbidding an unverified promise with another one is how customers learn to distrust the whole industry." },
+                            { text: "I'd be careful with any payback promise, including mine. If you share your last twelve months of bills, I'll run the numbers with the efficiency ratings from the spec sheets. You'll get an estimate you can check yourself.", isGood: true, model: "Authority through Method", feedback: "You don't compete on claims; you offer a transparent method. Being checkable is more persuasive than being impressive." },
+                            { text: "Yeah, their number sounds about right.", isGood: false, model: "Endorsing an Unverified Claim", feedback: "You just took responsibility for someone else's promise without checking it." }
+                        ]
+                    },
+                    {
+                        npc: "Alright. Honestly, I'm leaning toward the cheaper one. Money's tight this year.",
+                        options: [
+                            { text: "You'll regret it every summer.", isGood: false, model: "Pressure through Regret", feedback: "Predicting regret is a fear tactic. It rarely changes the decision and always damages the relationship." },
+                            { text: "That's a completely reasonable choice. If we go with the basic unit, I'd suggest adjusting the fan speed for your climate and sealing the upstairs ducts. That gets you part of the humidity benefit for a lot less. Would that work for you?", isGood: true, model: "Respecting the Decision", feedback: "You accept the customer's decision and still solve as much of their problem as the budget allows. That's being a trusted advisor, not a salesperson." },
+                            { text: "Okay, whatever you want.", isGood: false, model: "Disengaging", feedback: "Accepting the decision is right; giving up on the customer's problem isn't. They still have a clammy upstairs." }
+                        ]
+                    },
+                    {
+                        npc: "That actually sounds good. Why are you helping me spend less?",
+                        options: [
+                            { text: "Between you and me, the expensive units are mostly profit for the company.", isGood: false, model: "Undermining Your Employer", feedback: "Disloyal and untrue as a blanket claim. It damages trust in everything you said before." },
+                            { text: "Honestly? I just want to get this job closed today.", isGood: false, model: "Transactional", feedback: "It turns a good conversation into a transaction after the fact." },
+                            { text: "Because the right system is the one that fits your house and your budget. If it works well, you'll call us for the next fifteen years. That's worth more to us than one bigger ticket.", isGood: true, model: "Long-Term Relationship", feedback: "You name the real reason honesty pays: trust and repeat business. Customers believe that because it's true." }
                         ]
                     }
-                ]
+                ],
+                debrief: {
+                    summary: "Analytical customers don't need to be convinced. They need numbers they can check and a technician they can trust.",
+                    takeaways: [
+                        "Tie every extra dollar to a problem the customer named.",
+                        "Offer a checkable method instead of competing payback claims.",
+                        "Respect a budget decision, then solve as much as it allows."
+                    ]
+                }
             }
         ];
 
-        // --- BASE CAMP (OLD SIMULATOR) LOGIC ---
-        let bcState = { active: false, scenario: null, stepIndex: 0 };
-        
+        // --- BASE CAMP (GUIDED 5-TURN RUNS) LOGIC ---
+        // firstTry[i] records whether turn i was answered correctly on the first attempt.
+        let bcState = { active: false, scenario: null, stepIndex: 0, firstTry: [] };
+
         function renderBaseCampList() {
-            bcState = { active: false, scenario: null, stepIndex: 0 };
+            bcState = { active: false, scenario: null, stepIndex: 0, firstTry: [] };
             document.getElementById('bc-header-title').innerText = "Guided Scenarios";
             document.getElementById('btn-back-bc').classList.add('hidden');
-            
-            let html = `<div class="grid grid-cols-1 gap-4">`;
+
+            let html = `<p class="text-sm text-gray-500 mb-4">Each run has five turns. Pick the best of three responses; wrong picks explain why and let you try again. You get a debrief at the end.</p><div class="grid grid-cols-1 gap-4">`;
             coreScenarios.forEach(sc => {
                 html += `
                     <div onclick="startBaseCamp('${sc.id}')" class="bg-white border border-gray-200 rounded-lg p-4 cursor-pointer hover:border-hvac-blue hover:shadow-md transition-all flex items-center group">
@@ -664,7 +794,7 @@
                             <i data-lucide="${sc.icon}" class="${sc.color} w-6 h-6"></i>
                         </div>
                         <div class="flex-grow">
-                            <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">${sc.type}</span>
+                            <span class="text-xs font-bold uppercase tracking-wider text-gray-400 block mb-1">${sc.type} &middot; ${sc.steps.length} turns</span>
                             <h4 class="text-lg font-bold text-gray-800 group-hover:text-hvac-blue transition-colors">${sc.title}</h4>
                         </div>
                         <i data-lucide="chevron-right" class="text-gray-300 group-hover:text-hvac-blue w-5 h-5"></i>
@@ -680,14 +810,24 @@
             bcState.active = true;
             bcState.scenario = coreScenarios.find(s => s.id === id);
             bcState.stepIndex = 0;
+            bcState.firstTry = [];
             document.getElementById('bc-header-title').innerText = `Base Camp: ${bcState.scenario.title}`;
             document.getElementById('btn-back-bc').classList.remove('hidden');
             renderBaseCampStep();
         }
 
         function renderBaseCampStep() {
+            const total = bcState.scenario.steps.length;
             const step = bcState.scenario.steps[bcState.stepIndex];
+            const dots = bcState.scenario.steps.map((_, i) => {
+                const cls = i < bcState.stepIndex ? (bcState.firstTry[i] ? 'bg-green-500' : 'bg-amber-400') : (i === bcState.stepIndex ? 'bg-hvac-blue' : 'bg-gray-300');
+                return `<span class="w-2.5 h-2.5 rounded-full ${cls}"></span>`;
+            }).join('');
             let html = `
+                <div class="flex items-center justify-between mb-4 text-xs font-bold uppercase tracking-wider text-gray-500">
+                    <span>Turn ${bcState.stepIndex + 1} of ${total}</span>
+                    <span class="flex gap-1.5" aria-hidden="true">${dots}</span>
+                </div>
                 ${bcState.stepIndex === 0 ? `
                 <div class="bg-blue-50 border-l-4 border-hvac-blue p-4 mb-6 rounded-r-lg text-sm fade-in">
                     <strong class="text-hvac-darkBlue block mb-1">Dispatch Context:</strong>
@@ -699,7 +839,7 @@
                         <div class="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center"><i data-lucide="user" class="text-gray-600 w-6 h-6"></i></div>
                     </div>
                     <div class="bg-white border border-gray-200 p-4 rounded-2xl rounded-tl-none shadow-sm flex-grow relative">
-                        <p class="text-gray-800 text-lg font-medium leading-relaxed">"${step.npc.replace(/Customer[^:]*:\s*/, '').replace(/^'|'$/g, '')}"</p>
+                        <p class="text-gray-800 text-lg font-medium leading-relaxed">"${step.npc}"</p>
                         <span class="absolute -top-3 left-4 bg-gray-100 px-2 text-xs font-bold text-gray-500 rounded">Customer</span>
                     </div>
                 </div>
@@ -707,7 +847,10 @@
                 <div class="space-y-3 mt-auto fade-in">
                     <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Select Your Response:</h4>
             `;
-            step.options.forEach((opt, index) => {
+            // Shuffle the display order on every render so the right answer can't be memorized by position.
+            const order = step.options.map((_, k) => k).sort(() => Math.random() - 0.5);
+            order.forEach(index => {
+                const opt = step.options[index];
                 html += `
                     <button onclick="handleBaseCampChoice(${index})" class="w-full text-left p-4 bg-white border border-gray-300 rounded-lg hover:border-hvac-blue hover:bg-blue-50 transition-all shadow-sm group relative">
                         <p class="text-gray-700 font-medium group-hover:text-hvac-darkBlue pr-6">${opt.text}</p>
@@ -721,7 +864,10 @@
         }
 
         function handleBaseCampChoice(optIdx) {
-            const choice = bcState.scenario.steps[bcState.stepIndex].options[optIdx];
+            const i = bcState.stepIndex;
+            const choice = bcState.scenario.steps[i].options[optIdx];
+            if (bcState.firstTry[i] === undefined) bcState.firstTry[i] = choice.isGood;
+            const isLast = i === bcState.scenario.steps.length - 1;
             let html = `
                 <div class="flex flex-col h-full fade-in">
                     <div class="mb-6">
@@ -736,24 +882,68 @@
                             ${choice.isGood ? 'Excellent Approach' : 'Needs Improvement'}
                         </h3>
                         <div class="bg-white px-3 py-1 rounded-full text-xs font-bold text-gray-500 uppercase tracking-wider mb-4 border border-gray-200">
-                            Model Analysed: ${choice.model}
+                            ${choice.isGood ? 'Model' : 'Pitfall'}: ${choice.model}
                         </div>
                         <p class="text-gray-700 max-w-md leading-relaxed text-lg">${choice.feedback}</p>
                     </div>
                     <div class="mt-6">
             `;
             if (choice.isGood) {
-                if (choice.nextStep !== undefined) {
-                    html += `<button onclick="bcState.stepIndex = ${choice.nextStep}; renderBaseCampStep();" class="w-full bg-hvac-blue hover:bg-hvac-darkBlue text-white font-bold py-4 rounded-lg shadow-md transition-colors flex justify-center items-center">Continue Conversation <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i></button>`;
+                if (!isLast) {
+                    html += `<button onclick="bcState.stepIndex++; renderBaseCampStep();" class="w-full bg-hvac-blue hover:bg-hvac-darkBlue text-white font-bold py-4 rounded-lg shadow-md transition-colors flex justify-center items-center">Continue to Turn ${i + 2} <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i></button>`;
                 } else {
-                    html += `<button onclick="renderBaseCampList()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-lg shadow-md transition-colors flex justify-center items-center"><i data-lucide="check" class="mr-2 w-5 h-5"></i> Call Completed. Return to Base Camp.</button>`;
+                    html += `<button onclick="renderBaseCampDebrief()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-lg shadow-md transition-colors flex justify-center items-center"><i data-lucide="award" class="mr-2 w-5 h-5"></i> Call completed: see your debrief</button>`;
                 }
             } else {
-                 html += `<button onclick="renderBaseCampStep()" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-4 rounded-lg transition-colors flex justify-center items-center"><i data-lucide="rotate-ccw" class="mr-2 w-5 h-5"></i> Try Again</button>`;
+                html += `<button onclick="renderBaseCampStep()" class="w-full bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-4 rounded-lg transition-colors flex justify-center items-center"><i data-lucide="rotate-ccw" class="mr-2 w-5 h-5"></i> Try Again</button>`;
             }
             html += `</div></div>`;
             document.getElementById('bc-content').innerHTML = html;
             lucide.createIcons();
+        }
+
+        function renderBaseCampDebrief() {
+            const sc = bcState.scenario;
+            const total = sc.steps.length;
+            const score = bcState.firstTry.filter(Boolean).length;
+            const verdict = score === total ? 'Five-star call. You chose the strongest response every time.'
+                : score >= total - 1 ? 'Strong call. One turn needed a second try; look at it below.'
+                : score >= Math.ceil(total / 2) ? 'Solid foundation. Review the turns marked for another look.'
+                : 'Good practice run. Replay it; the second run is where the models start to stick.';
+            const recap = sc.steps.map((st, i) => {
+                const good = st.options.find(o => o.isGood);
+                const ok = bcState.firstTry[i];
+                return `<li class="flex items-start py-2 border-b border-gray-100 last:border-0">
+                    <i data-lucide="${ok ? 'check-circle' : 'rotate-ccw'}" class="w-5 h-5 ${ok ? 'text-green-500' : 'text-amber-500'} mr-3 mt-0.5 flex-shrink-0"></i>
+                    <div><span class="text-xs font-bold uppercase tracking-wider text-gray-400">Turn ${i + 1} &middot; ${ok ? 'first try' : 'needed another look'}</span>
+                    <p class="font-semibold text-gray-800">${good.model}</p></div>
+                </li>`;
+            }).join('');
+            document.getElementById('bc-header-title').innerText = `Debrief: ${sc.title}`;
+            document.getElementById('bc-content').innerHTML = `
+                <div class="fade-in space-y-6">
+                    <div class="text-center">
+                        <div class="text-5xl font-extrabold text-slate-800">${score}<span class="text-2xl text-gray-400">/${total}</span></div>
+                        <p class="text-sm text-gray-500 uppercase tracking-wider font-bold mt-1">turns right on the first try</p>
+                        <p class="mt-3 text-gray-700 max-w-md mx-auto">${verdict}</p>
+                    </div>
+                    <div class="bg-white border border-gray-200 rounded-xl p-5">
+                        <h4 class="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Turn by turn</h4>
+                        <ul>${recap}</ul>
+                    </div>
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-5">
+                        <h4 class="font-bold text-amber-900 mb-2">What this call teaches</h4>
+                        <p class="text-gray-700 mb-3">${sc.debrief.summary}</p>
+                        <ul class="space-y-2">${sc.debrief.takeaways.map(t => `<li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span class="text-gray-700">${t}</span></li>`).join('')}</ul>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <button onclick="startBaseCamp('${sc.id}')" class="bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-bold py-3 rounded-lg flex justify-center items-center"><i data-lucide="rotate-ccw" class="w-4 h-4 mr-2"></i> Replay</button>
+                        <button onclick="practiceScenario('fivestar', '${sc.id}')" class="bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-bold py-3 rounded-lg flex justify-center items-center"><i data-lucide="star" class="w-4 h-4 mr-2"></i> Try it live (AI)</button>
+                        <button onclick="renderBaseCampList()" class="bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 rounded-lg flex justify-center items-center">All scenarios</button>
+                    </div>
+                </div>`;
+            lucide.createIcons();
+            document.getElementById('bc-content').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
         // --- FIVE STAR TRAINING (AI) LOGIC ---
