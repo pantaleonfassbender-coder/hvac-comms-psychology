@@ -4,18 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HVAC ProComm | Customer Relations Training</title>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N38E7KX9WX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-N38E7KX9WX');
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <meta name="description" content="Free communication training for HVAC technicians and trade-school students: guided scenarios, AI customer role-play with debrief, and a short podcast. By Dr. Pantaleon Fassbender.">
+    <!-- All assets are self-hosted: no analytics, no font or script CDN. -->
+    <link rel="stylesheet" href="fonts.css">
+    <script src="vendor/tailwind.js"></script>
+    <script src="vendor/lucide.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -68,15 +61,15 @@
     <nav class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
-                <div class="flex items-center cursor-pointer" onclick="navigate('home')">
+                <a href="#" class="flex items-center cursor-pointer" onclick="navigate('home'); return false;">
                     <i data-lucide="wind" class="h-8 w-8 text-hvac-blue mr-2"></i>
                     <span class="font-bold text-xl tracking-tight">HVAC <span class="text-hvac-blue">ProComm</span></span>
-                </div>
+                </a>
                 <div class="hidden md:flex space-x-6 items-center">
-                    <span class="nav-link font-medium text-sm" onclick="navigate('home')">Home</span>
-                    <span class="nav-link font-medium text-sm" onclick="navigate('podcast')">HVAC Psychology</span>
-                    <span class="nav-link font-medium text-sm" onclick="navigate('models')">Comms Models</span>
-                    <span class="nav-link font-medium text-sm" onclick="navigate('scenarios')">Key Scenarios</span>
+                    <button type="button" class="nav-link font-medium text-sm" onclick="navigate('home')">Home</button>
+                    <button type="button" class="nav-link font-medium text-sm" onclick="navigate('podcast')">HVAC Psychology</button>
+                    <button type="button" class="nav-link font-medium text-sm" onclick="navigate('models')">Comms Models</button>
+                    <button type="button" class="nav-link font-medium text-sm" onclick="navigate('scenarios')">Key Scenarios</button>
                     <button onclick="navigate('basecamp')" class="bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 rounded-md font-medium text-sm transition-colors shadow-sm">
                         Base Camp
                     </button>
@@ -86,7 +79,7 @@
                 </div>
                 <!-- Mobile menu button -->
                 <div class="flex items-center md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-500 hover:text-gray-700 focus:outline-none">
+                    <button id="mobile-menu-btn" type="button" aria-label="Open menu" class="text-gray-500 hover:text-gray-700 focus:outline-none">
                         <i data-lucide="menu" class="h-6 w-6"></i>
                     </button>
                 </div>
@@ -94,12 +87,12 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-2 pt-2 pb-3 space-y-1 shadow-lg">
-            <span class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('home'); toggleMobileMenu()">Home</span>
-            <span class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('podcast'); toggleMobileMenu()">HVAC Psychology</span>
-            <span class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('models'); toggleMobileMenu()">Comms Models</span>
-            <span class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('scenarios'); toggleMobileMenu()">Key Scenarios</span>
-            <span class="block px-3 py-2 rounded-md text-base font-medium text-slate-800 hover:bg-slate-100 nav-link" onclick="navigate('basecamp'); toggleMobileMenu()">Base Camp</span>
-            <span class="block px-3 py-2 rounded-md text-base font-medium text-amber-600 hover:bg-amber-50 nav-link flex items-center" onclick="navigate('fivestar'); toggleMobileMenu()"><i data-lucide="star" class="w-4 h-4 mr-1 fill-current"></i> Five Star Training</span>
+            <button type="button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('home'); toggleMobileMenu()">Home</button>
+            <button type="button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('podcast'); toggleMobileMenu()">HVAC Psychology</button>
+            <button type="button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('models'); toggleMobileMenu()">Comms Models</button>
+            <button type="button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50 nav-link" onclick="navigate('scenarios'); toggleMobileMenu()">Key Scenarios</button>
+            <button type="button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-slate-800 hover:bg-slate-100 nav-link" onclick="navigate('basecamp'); toggleMobileMenu()">Base Camp</button>
+            <button type="button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-amber-600 hover:bg-amber-50 nav-link flex items-center" onclick="navigate('fivestar'); toggleMobileMenu()"><i data-lucide="star" class="w-4 h-4 mr-1 fill-current"></i> Five Star Training</button>
         </div>
     </nav>
 
@@ -119,7 +112,7 @@
                                     <span class="block text-hvac-blue">HVAC Customer Relations</span>
                                 </h1>
                                 <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                                    Technical skills fix the unit. Communication skills build the business. Train in psychologically validated communication models designed specifically for the daily realities of HVAC technicians.
+                                    Technical skills fix the unit. Communication skills build the business. Practice research-informed communication models built around the daily realities of HVAC technicians: guided scenarios, live AI customer role-play with a debrief, and a short podcast. Free, no sign-up, nothing stored.
                                 </p>
                                 <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start gap-3 flex-col sm:flex-row">
                                     <button onclick="navigate('fivestar')" class="w-full sm:w-auto flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 md:py-4 md:text-lg transition-colors shadow-md">
@@ -148,7 +141,7 @@
         <div id="view-models" class="section-view fade-in max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Psychological Communication Models</h2>
-                <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">Validated frameworks to de-escalate tension, build immediate trust, and guide the customer toward necessary investments.</p>
+                <p class="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">Practical frameworks to de-escalate tension, build trust, and help the customer make an informed decision. They come from sales and service training and draw on research in social psychology; treat them as tools to practice, not scripts.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -182,8 +175,9 @@
                             <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-hvac-red">
                                 <p class="mb-2"><strong>1. Feel:</strong> "I understand how you <em>feel</em> seeing a $1,200 repair estimate."</p>
                                 <p class="mb-2"><strong>2. Felt:</strong> "Many of my homeowners have <em>felt</em> that exact same shock."</p>
-                                <p><strong>3. Found:</strong> "But what we've <em>found</em> is that replacing this now saves an average of $300 in energy bills and prevents a total failure."</p>
+                                <p><strong>3. Found:</strong> "What they've <em>found</em> is that once they see the burned-out part and what it protects, the decision gets a lot easier. Let me show you."</p>
                             </div>
+                            <p class="text-sm text-gray-500">Only say "found" about things you can back up. Invented savings figures are the fastest way to lose a customer's trust and can be a deceptive-advertising problem for your employer.</p>
                         </div>
                     </div>
                 </div>
@@ -220,8 +214,12 @@
                             </div>
                             <div class="bg-gray-50 p-4 rounded border border-gray-200">
                                 <strong class="text-gray-900 block mb-1">6. Scarcity:</strong>
-                                <span class="text-sm text-gray-600">People want what is limited. Highlight genuine limitations ethically, like expiring manufacturer rebates, parts shortages, or upcoming seasonal price increases.</span>
+                                <span class="text-sm text-gray-600">People want what is limited. Mention only <em>real, verifiable</em> limits, like a rebate with a published end date or a part your supplier has confirmed is back-ordered.</span>
                             </div>
+                        </div>
+                        <div class="mt-6 bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg text-sm text-gray-700">
+                            <strong class="text-gray-900 block mb-1">The line you don't cross</strong>
+                            Persuasion helps a customer act on what is true. Manipulation invents urgency, fear, or social proof that isn't there. If a neighbor story, a deadline, or a safety warning isn't true, don't say it. And when there <em>is</em> a real safety issue (gas leak, carbon monoxide, exposed wiring), you state it plainly and follow your company's shut-off procedure, whether or not it helps the sale.
                         </div>
                     </div>
                 </div>
@@ -307,6 +305,15 @@
                             <span>Audio file loaded and ready to play.</span>
                         </p>
                     </div>
+                    <details class="mt-4 text-sm text-gray-600">
+                        <summary class="cursor-pointer font-semibold text-slate-700">Classroom use: topics and discussion questions</summary>
+                        <p class="mt-2"><strong>Topics:</strong> de-escalation; the L.A.E.R. sequence (see Comms Models); fixing the metal box versus fixing the customer.</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li>Think of a service call (as tech or as customer) where the repair was fine but the conversation went wrong. Which L.A.E.R. step was skipped?</li>
+                            <li>What is the difference between acknowledging a customer's frustration and admitting fault?</li>
+                            <li>After listening, run one Five Star role-play and compare your first reply with the L.A.E.R. sequence.</li>
+                        </ul>
+                    </details>
                 </div>
             </div>
         </div>
@@ -364,7 +371,9 @@
     <footer class="bg-teal-50 text-teal-800 py-8 border-t border-teal-200 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm flex flex-col items-center justify-center">
             <i data-lucide="wind" class="h-6 w-6 text-teal-600 mb-4"></i>
-            <p>(C) 2026 - Dr. Pantaleon Fassbender - leo@twistersmanagementconsultingllc.com</p>
+            <p>&copy; 2026 Dr. Pantaleon Fassbender &middot; <a href="mailto:pantaleonfassbender@gmail.com" class="underline hover:text-teal-600">pantaleonfassbender@gmail.com</a></p>
+            <p class="mt-2"><a href="legal.html" class="underline hover:text-teal-600">Legal notice, privacy &amp; AI disclosure</a></p>
+            <p class="mt-2 text-xs text-teal-700 max-w-2xl">Training tool for educational use. The AI customer and the panel are simulated and can be wrong; don't enter real customer names or other personal data.</p>
         </div>
     </footer>
 
@@ -388,7 +397,7 @@
                 setStatus(`Audio file ready — ${mins}:${secs} runtime. Press play to listen.`, true);
             });
             audio.addEventListener('playing', () => setStatus('Audio is playing.', true));
-            audio.addEventListener('error', () => setStatus('Audio failed to load. Check that podcast1.mp3 is deployed.', false));
+            audio.addEventListener('error', () => setStatus('The audio could not be loaded. Please reload the page or try another browser.', false));
         })();
 
         // --- Navigation Logic ---
@@ -406,6 +415,13 @@
         function toggleMobileMenu() { mobileMenu.classList.toggle('hidden'); }
         mobileMenuBtn.addEventListener('click', toggleMobileMenu);
 
+        // Everything typed by the user or returned by the model is inserted as text, never as HTML.
+        function escapeHtml(value) {
+            return String(value ?? '')
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+
         // --- Shared Scenario Data ---
         const coreScenarios = [
             {
@@ -417,15 +433,15 @@
                     {
                         npc: "Customer: 'Eight hundred and fifty dollars?! For a fan and a capacitor? That's highway robbery! I saw a motor online for $120. Are you guys just trying to rip me off because it's hot?'",
                         options: [
-                            { text: "Ma'am, it's not a battery, it's a capacitor. And our pricing includes labor...", isGood: false, model: "Poor Approach", feedback: "Defensive and pedantic." },
-                            { text: "I completely understand why that number is shocking, especially when it's this hot...", isGood: true, model: "Feel, Felt, Found", feedback: "Excellent use of Empathy.", nextStep: 1 }
+                            { text: "Ma'am, it's not just a fan and a capacitor. Our pricing includes labor, the truck, the warranty...", isGood: false, model: "Poor Approach", feedback: "Defensive. You are arguing about the invoice before the customer feels heard (skips Listen and Acknowledge in L.A.E.R.)." },
+                            { text: "I completely understand why that number is shocking, especially when it's this hot...", isGood: true, model: "Feel, Felt, Found", feedback: "Good start: you acknowledge the feeling and the heat before defending the price (the 'Feel' step).", nextStep: 1 }
                         ]
                     },
                     {
                         npc: "Customer: 'It's just so much money right before school starts. Is this absolutely necessary? Can't we just patch it up for now?'",
                         options: [
-                            { text: "Look, if we don't fix this now, your compressor is going to burn out...", isGood: false, model: "Fear Tactics", feedback: "Using fear undoes your hard work." },
-                            { text: "...What we've found is that trying to run the system with these failing components...", isGood: true, model: "The Pivot", feedback: "Perfect execution of 'Found'." }
+                            { text: "Look, if we don't fix this now, your compressor is going to burn out...", isGood: false, model: "Fear Tactics", feedback: "Fear tactics undo the trust you just built. If there is a real risk to the compressor, explain it calmly, with evidence, as information rather than a threat." },
+                            { text: "...What we've found is that trying to run the system with these failing components...", isGood: true, model: "The Pivot", feedback: "Good use of 'Found': you share what you have actually seen happen, then let the customer decide." }
                         ]
                     }
                 ]
@@ -439,15 +455,15 @@
                     {
                         npc: "Customer: 'Well, she's old, but she still blows cold air! Should be good for another summer, right?'",
                         options: [
-                            { text: "Actually, it's 14 years old and uses R-22 which is illegal to make now...", isGood: false, model: "Feature Dumping", feedback: "Too aggressive." },
-                            { text: "Yeah, she's definitely a survivor! While I'm finishing up checking these pressures, can I ask you—how has the comfort level been...", isGood: true, model: "Consultative", feedback: "Great start.", nextStep: 1 }
+                            { text: "Actually, it's 14 years old and uses R-22 which is illegal to make now...", isGood: false, model: "Feature Dumping", feedback: "Feature dumping. Technically true (R-22 can no longer be produced or imported in the U.S.), but leading with it sounds like a sales pitch before you know what the customer cares about." },
+                            { text: "Yeah, she's definitely a survivor! While I'm finishing up checking these pressures, can I ask you—how has the comfort level been...", isGood: true, model: "Consultative", feedback: "Consultative opening: you affirm the customer and ask about their experience before offering an opinion.", nextStep: 1 }
                         ]
                     },
                     {
-                        npc: "Customer: 'Now that you mention it, the upstairs master bedroom always stays about 4 degrees warmer. My wife hates it.'",
+                        npc: "Customer: 'Now that you mention it, the upstairs master bedroom always stays about 4 degrees warmer. We ended up putting a window unit in there last summer.'",
                         options: [
-                            { text: "Oh, well a new variable-speed inverter system will fix that right up...", isGood: false, model: "Premature Pitch", feedback: "You skipped the 'Implication'." },
-                            { text: "I hear that a lot with older single-stage systems. Does having to run that loud window unit disrupt your sleep?", isGood: true, model: "Consultative", feedback: "Excellent implication question." }
+                            { text: "Oh, well a new variable-speed inverter system will fix that right up...", isGood: false, model: "Premature Pitch", feedback: "Premature pitch. You jumped to a solution before exploring what the problem costs the customer (the 'Implication' step in SPIN questioning)." },
+                            { text: "I hear that a lot with older single-stage systems. Does having to run that loud window unit disrupt your sleep?", isGood: true, model: "Consultative", feedback: "Implication question: you connect the technical issue to something the customer cares about (sleep, comfort) using their own words." }
                         ]
                     }
                 ]
@@ -461,15 +477,15 @@
                     {
                         npc: "Customer: 'The last guy was in there for 5 minutes and told me if I turn my heat on, we will all die of carbon monoxide. Are they just trying to scare me?'",
                         options: [
-                            { text: "Wow, Big Name HVAC strikes again. They do this to everyone...", isGood: false, model: "Bashing", feedback: "Never bash the competitor." },
-                            { text: "I completely understand why you'd be concerned. I'm going to put my analyzer on it, and I invite you to look at the screen with me.", isGood: true, model: "Radical Transparency", feedback: "Excellent validation.", nextStep: 1 }
+                            { text: "Wow, Big Name HVAC strikes again. They do this to everyone...", isGood: false, model: "Bashing", feedback: "Never bash a competitor. It sounds self-serving, and if their diagnosis turns out to be right you have just told the customer to ignore a safety warning." },
+                            { text: "I completely understand why you'd be concerned. I'm going to put my analyzer on it, and I invite you to look at the screen with me.", isGood: true, model: "Radical Transparency", feedback: "Validation plus transparency: you take the fear seriously and let the customer see the measurement themselves. A cracked heat exchanger is a real carbon-monoxide risk, so the test result, not either company, decides.", nextStep: 1 }
                         ]
                     },
                     {
                         npc: "Customer (Relieved): 'Thank you. I'd really appreciate that. If it IS broken, can you guys beat $12,000?'",
                         options: [
-                            { text: "Oh easily, we can probably do it for $8,000. We don't have their massive overhead.", isGood: false, model: "Premature Price Drop", feedback: "You just commoditized your work." },
-                            { text: "We have options for almost every budget. Let's first confirm if you actually need a system.", isGood: true, model: "Consultative Delay", feedback: "Perfect expectation setting." }
+                            { text: "Oh easily, we can probably do it for $8,000. We don't have their massive overhead.", isGood: false, model: "Premature Price Drop", feedback: "Premature price drop. You are quoting before you have diagnosed anything, which turns your work into a commodity." },
+                            { text: "We have options for almost every budget. Let's first confirm if you actually need a system.", isGood: true, model: "Consultative Delay", feedback: "Expectation setting: diagnosis first, price second." }
                         ]
                     }
                 ]
@@ -483,9 +499,9 @@
                     {
                         npc: "Customer: 'Look, your quote is $3,000 higher than the baseline 14-SEER option. What is the actual return on investment here?'",
                         options: [
-                            { text: "Well, the higher end model has a variable speed compressor, better SEER rating...", isGood: false, model: "Feature Dumping", feedback: "Jargon without connection to needs." },
-                            { text: "If you want to save money right now, you can go with the cheaper one, but you'll end up paying for it later.", isGood: false, model: "Passive Aggressive", feedback: "Adversarial relationship." },
-                            { text: "That's a very fair question. When we walked the house earlier, you mentioned the severe humidity issues upstairs. If this system could completely resolve those...", isGood: true, model: "Need-Payoff", feedback: "Excellent use of their own pain points." }
+                            { text: "Well, the higher end model has a variable speed compressor, better SEER rating...", isGood: false, model: "Feature Dumping", feedback: "Jargon with no connection to what the customer said they need." },
+                            { text: "If you want to save money right now, you can go with the cheaper one, but you'll end up paying for it later.", isGood: false, model: "Passive Aggressive", feedback: "Passive-aggressive. It puts you against the customer instead of beside them." },
+                            { text: "That's a very fair question. When we walked the house earlier, you mentioned the severe humidity issues upstairs. If this system could completely resolve those...", isGood: true, model: "Need-Payoff", feedback: "Need-payoff (SPIN): you tie the extra cost to a problem the customer named themselves." }
                         ]
                     }
                 ]
@@ -602,6 +618,9 @@
 
         // --- FIVE STAR TRAINING (AI) LOGIC ---
         let fsState = { active: false, scenario: null, messages: [], customMode: false };
+        // Custom scenarios exist only in this tab and only for the AI role-play (they have no Base Camp steps).
+        const customScenarios = [];
+        const MAX_TURNS = 30;
 
         async function callRoleplayAPI(messages, isGreeting = false) {
             const res = await fetch('/api/roleplay', {
@@ -670,19 +689,19 @@
             document.getElementById('btn-back-fs').classList.remove('hidden');
             document.getElementById('fs-content').innerHTML = `
                 <div class="fade-in max-w-2xl mx-auto w-full">
-                    <p class="text-gray-500 text-sm mb-6 text-center">Define the context and the customer's personality. The AI will play the role.</p>
+                    <p class="text-gray-500 text-sm mb-6 text-center">Define the context and the customer's personality. The AI will play the role. Use invented details only: no real customer names, addresses, or phone numbers.</p>
                     <form onsubmit="handleBuildAISubmit(event)" class="space-y-4 bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Scenario Title</label>
-                            <input type="text" id="ai-title" required class="w-full border p-2 rounded focus:ring-2 focus:ring-amber-500 outline-none">
+                            <input type="text" id="ai-title" required maxlength="80" class="w-full border p-2 rounded focus:ring-2 focus:ring-amber-500 outline-none">
                         </div>
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Dispatch Context</label>
-                            <textarea id="ai-context" required rows="2" class="w-full border p-2 rounded focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
+                            <textarea id="ai-context" required rows="2" maxlength="1500" class="w-full border p-2 rounded focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
                         </div>
                         <div>
                             <label class="block text-sm font-bold text-gray-700 mb-1">Customer Persona Instructions (For AI)</label>
-                            <textarea id="ai-persona" required rows="3" placeholder="e.g., You are an angry landlord. You refuse to pay the diagnostic fee." class="w-full border p-2 rounded focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
+                            <textarea id="ai-persona" required rows="3" maxlength="1500" placeholder="e.g., You are an angry landlord. You refuse to pay the diagnostic fee." class="w-full border p-2 rounded focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
                         </div>
                         <button type="submit" class="w-full bg-gradient-to-r from-amber-500 to-yellow-600 text-white font-bold py-3 rounded shadow mt-4">Start Custom AI Roleplay</button>
                     </form>
@@ -700,13 +719,13 @@
                 aiPersona: document.getElementById('ai-persona').value,
                 type: "Custom AI Simulation"
             };
-            coreScenarios.push(customScenario);
+            customScenarios.push(customScenario);
             startFiveStar(customScenario.id);
         }
 
         function startFiveStar(id) {
             fsState.active = true;
-            fsState.scenario = coreScenarios.find(s => s.id === id);
+            fsState.scenario = coreScenarios.concat(customScenarios).find(s => s.id === id);
             fsState.messages = [];
             document.getElementById('fs-header-title').innerText = `AI Live Session: ${fsState.scenario.title}`;
             document.getElementById('btn-back-fs').classList.remove('hidden');
@@ -720,7 +739,7 @@
             document.getElementById('fs-content').innerHTML = `
                 <div class="bg-blue-50 border-l-4 border-hvac-blue p-4 mb-4 rounded-r-lg text-sm flex-shrink-0">
                     <strong class="text-hvac-darkBlue block mb-1">Dispatch Info:</strong>
-                    <span class="text-gray-700">${fsState.scenario.context}</span>
+                    <span class="text-gray-700">${escapeHtml(fsState.scenario.context)}</span>
                 </div>
                 
                 <div id="ai-chat-history" class="flex-grow overflow-y-auto mb-4 space-y-4 px-2 pb-4">
@@ -729,19 +748,27 @@
 
                 <div class="mt-auto border-t pt-4 bg-white sticky bottom-0 z-10 flex flex-col gap-2">
                     <div id="ai-controls" class="flex items-end gap-2">
-                        <textarea id="ai-input" rows="2" placeholder="Type your response to the customer..." class="flex-grow border border-gray-300 rounded-lg p-3 resize-none focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
-                        <button onclick="sendUserMessage()" class="bg-amber-600 hover:bg-amber-700 text-white p-3 rounded-lg flex-shrink-0 self-stretch flex items-center justify-center transition-colors">
+                        <textarea id="ai-input" rows="2" maxlength="1500" aria-label="Your response to the customer" placeholder="Type your response to the customer... (Enter to send, Shift+Enter for a new line)" class="flex-grow border border-gray-300 rounded-lg p-3 resize-none focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
+                        <button id="ai-send" type="button" aria-label="Send" onclick="sendUserMessage()" class="bg-amber-600 disabled:opacity-50 hover:bg-amber-700 text-white p-3 rounded-lg flex-shrink-0 self-stretch flex items-center justify-center transition-colors">
                             <i data-lucide="send" class="w-5 h-5"></i>
                         </button>
                     </div>
                     <button onclick="endRoleplay()" class="w-full text-center text-sm font-bold text-red-600 py-2 hover:bg-red-50 rounded transition-colors border border-red-200">
                         End Role-play & Request Panel Analysis
                     </button>
+                    <p class="text-xs text-gray-400 text-center">Simulated customer (Google Gemini). Your messages are sent for processing and not stored by this site. <a href="legal.html#privacy" target="_blank" class="underline">Privacy</a></p>
                 </div>
             `;
             lucide.createIcons();
+            document.getElementById('ai-input').addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) {
+                    e.preventDefault();
+                    sendUserMessage();
+                }
+            });
         }
 
+        // `text` is plain text; `options.html` marks trusted, built-in markup (typing dots, system notes).
         function appendMessage(role, text, options = {}) {
             const chatHistory = document.getElementById('ai-chat-history');
             const div = document.createElement('div');
@@ -752,15 +779,11 @@
                     <div class="flex-shrink-0 mr-3 mt-1">
                         <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center"><i data-lucide="user" class="text-gray-600 w-4 h-4"></i></div>
                     </div>
-                    <div class="bg-white border border-gray-200 p-3 rounded-2xl rounded-tl-none shadow-sm chat-bubble text-gray-800">
-                        ${text}
-                    </div>
+                    <div class="bg-white border border-gray-200 p-3 rounded-2xl rounded-tl-none shadow-sm chat-bubble text-gray-800 whitespace-pre-wrap">${options.html ? text : escapeHtml(text)}</div>
                 `;
             } else {
                 div.innerHTML = `
-                    <div class="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none shadow-sm chat-bubble">
-                        ${text}
-                    </div>
+                    <div class="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none shadow-sm chat-bubble whitespace-pre-wrap">${escapeHtml(text)}</div>
                 `;
             }
             chatHistory.appendChild(div);
@@ -776,7 +799,11 @@
         async function sendUserMessage() {
             const input = document.getElementById('ai-input');
             const text = input.value.trim();
-            if (!text) return;
+            if (!text || input.disabled) return;
+            if (fsState.messages.filter(m => m.role === 'user').length >= MAX_TURNS) {
+                alert('This session has reached its length limit. End the role-play to get your panel analysis.');
+                return;
+            }
             
             input.value = '';
             appendMessage('user', text);
@@ -785,12 +812,14 @@
 
         async function getAIResponse(isGreeting = false) {
             const inputCtrl = document.getElementById('ai-input');
+            const sendBtn = document.getElementById('ai-send');
             inputCtrl.disabled = true;
+            sendBtn.disabled = true;
 
             const typingIndicator = appendMessage(
                 'ai',
                 '<div class="flex items-center h-4 space-x-1"><div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div><div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div><div class="w-2 h-2 bg-gray-400 rounded-full typing-dot"></div></div>',
-                { transient: true }
+                { transient: true, html: true }
             );
 
             try {
@@ -798,18 +827,22 @@
                 typingIndicator.remove();
                 const safeText = (responseText || '').trim();
                 if (!safeText) {
-                    appendMessage('ai', '<em class="text-gray-500">(The customer pauses and looks at you, unsure what to say. Try opening the conversation differently.)</em>', { transient: true });
+                    appendMessage('ai', '<em class="text-gray-500">(The customer pauses and looks at you, unsure what to say. Try opening the conversation differently.)</em>', { transient: true, html: true });
                 } else {
                     appendMessage('ai', safeText);
                 }
             } catch (err) {
                 typingIndicator.remove();
                 const detail = (err && err.message) ? err.message : 'Could not connect to AI.';
-                appendMessage('ai', `<em class="text-red-600">(System error: ${detail})</em>`, { transient: true });
+                appendMessage('ai', `<em class="text-red-600">(System error: ${escapeHtml(detail)}. Please try again in a moment.)</em>`, { transient: true, html: true });
                 console.error(err);
             } finally {
-                inputCtrl.disabled = false;
-                inputCtrl.focus();
+                // The session may have been aborted while waiting; only touch controls that still exist.
+                if (document.body.contains(inputCtrl)) {
+                    inputCtrl.disabled = false;
+                    sendBtn.disabled = false;
+                    inputCtrl.focus();
+                }
             }
         }
 
@@ -835,10 +868,32 @@
 
             try {
                 const analysis = await callAnalysisAPI(transcriptText);
+                fsState.lastDebrief = { transcript: transcriptText, analysis };
                 renderAnalysis(analysis);
             } catch (err) {
                 console.error(err);
                 document.getElementById('fs-content').innerHTML = `<div class="text-red-500 p-4 font-bold">Analysis failed to generate. Please try again later.</div><button onclick="renderFiveStarList()" class="mt-4 px-4 py-2 bg-slate-200 rounded">Back</button>`;
+            }
+        }
+
+        async function copyTranscript() {
+            const d = fsState.lastDebrief;
+            if (!d) return;
+            const a = d.analysis || {};
+            const lines = [
+                'HVAC ProComm - Five Star Training debrief',
+                `Scenario: ${fsState.scenario ? fsState.scenario.title : ''}`,
+                `Date: ${new Date().toLocaleString()}`,
+                '', 'TRANSCRIPT', d.transcript, '',
+                'PANEL', ...[].concat(a.round1 || [], a.round2 || []).map(m => `${m.agent}: ${m.message}`), '',
+                'EVALUATION', (a.conclusion && a.conclusion.evaluation) || '', '',
+                'ADVICE', ...((a.conclusion && a.conclusion.advice) || []).map((x, i) => `${i + 1}. ${x}`)
+            ];
+            try {
+                await navigator.clipboard.writeText(lines.join('\n'));
+                alert('Copied. Paste it into your assignment or an email to your instructor.');
+            } catch {
+                alert('Copying is blocked in this browser. Select the text on the page and copy it manually.');
             }
         }
 
@@ -854,16 +909,17 @@
                 let rHtml = `<div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm"><h4 class="font-bold text-slate-400 mb-4 border-b pb-2 uppercase text-sm tracking-wider">Round ${roundNum}</h4><div class="space-y-4">`;
                 messages.forEach(msg => {
                     let icon, color, bg;
-                    if (msg.agent.includes("Customer")) { icon = "user"; color = "text-gray-600"; bg = "bg-gray-100"; }
-                    else if (msg.agent.includes("HVAC")) { icon = "wrench"; color = "text-blue-600"; bg = "bg-blue-100"; }
+                    const agent = String(msg.agent || '');
+                    if (agent.includes("Customer")) { icon = "user"; color = "text-gray-600"; bg = "bg-gray-100"; }
+                    else if (agent.includes("HVAC")) { icon = "wrench"; color = "text-blue-600"; bg = "bg-blue-100"; }
                     else { icon = "brain"; color = "text-purple-600"; bg = "bg-purple-100"; }
                     
                     rHtml += `
                         <div class="flex items-start">
                             <div class="${bg} p-2 rounded-full mr-3 mt-1"><i data-lucide="${icon}" class="w-5 h-5 ${color}"></i></div>
                             <div>
-                                <strong class="text-slate-800 text-sm block">${msg.agent}</strong>
-                                <p class="text-gray-700 leading-relaxed">${msg.message}</p>
+                                <strong class="text-slate-800 text-sm block">${escapeHtml(agent)}</strong>
+                                <p class="text-gray-700 leading-relaxed">${escapeHtml(msg.message)}</p>
                             </div>
                         </div>
                     `;
@@ -875,9 +931,7 @@
             if(analysis.round2) html += renderRound(2, analysis.round2);
 
             if(analysis.conclusion) {
-                const adviceItems = Array.isArray(analysis.conclusion.advice) && analysis.conclusion.advice.length > 0 
-                    ? analysis.conclusion.advice 
-                    : ["Build stronger authority by explaining the 'why' behind your diagnostic process.", "Use the principle of liking to find common ground before talking about system price.", "Create controlled scarcity by explaining how quickly key replacement parts are going out of stock."];
+                const adviceItems = Array.isArray(analysis.conclusion.advice) ? analysis.conclusion.advice : [];
 
                 html += `
                     <div class="bg-gradient-to-br from-amber-50 to-yellow-50 border border-amber-200 rounded-xl p-6 shadow-md mt-6">
@@ -885,13 +939,13 @@
                             <i data-lucide="award" class="w-6 h-6 mr-2"></i>
                             <h4 class="font-bold text-lg">Summative Evaluation & Advice</h4>
                         </div>
-                        <p class="text-gray-800 italic mb-6 border-l-4 border-amber-400 pl-4">"${analysis.conclusion.evaluation || "The technician showed communication effort but missed opportunities to apply psychological models."}"</p>
-                        <h5 class="font-bold text-slate-700 mb-3 text-sm uppercase tracking-wide">3 Actionable Steps (Cialdini's Principles):</h5>
+                        <p class="text-gray-800 italic mb-6 border-l-4 border-amber-400 pl-4">"${escapeHtml(analysis.conclusion.evaluation || 'No evaluation was returned. Please try the analysis again.')}"</p>
+                        <h5 class="font-bold text-slate-700 mb-3 text-sm uppercase tracking-wide">3 Actionable Steps:</h5>
                         <ul class="space-y-3">
                             ${adviceItems.map(adv => `
                                 <li class="flex items-start">
                                     <i data-lucide="check-circle" class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5"></i>
-                                    <span class="text-slate-700">${adv}</span>
+                                    <span class="text-slate-700">${escapeHtml(adv)}</span>
                                 </li>
                             `).join('')}
                         </ul>
@@ -899,7 +953,9 @@
                 `;
             }
 
-            html += `<button onclick="renderFiveStarList()" class="w-full mt-8 bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 rounded-lg shadow transition-colors flex justify-center items-center">Return to Training Menu</button></div>`;
+            html += `<p class="text-xs text-gray-500 mt-6">This debrief is generated by an AI model playing three roles in a single pass. It is a prompt for reflection and discussion, not a grade. Compare it with your instructor's feedback.</p>`;
+            html += `<button onclick="copyTranscript()" class="w-full mt-4 bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-bold py-3 rounded-lg transition-colors flex justify-center items-center"><i data-lucide="clipboard" class="w-5 h-5 mr-2"></i> Copy transcript &amp; debrief (to hand in or discuss)</button>`;
+            html += `<button onclick="renderFiveStarList()" class="w-full mt-4 bg-slate-800 hover:bg-slate-700 text-white font-bold py-4 rounded-lg shadow transition-colors flex justify-center items-center">Return to Training Menu</button></div>`;
             
             document.getElementById('fs-content').innerHTML = html;
             lucide.createIcons();
