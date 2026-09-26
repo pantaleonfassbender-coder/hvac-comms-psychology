@@ -85,7 +85,7 @@
             <thead><tr><th>When</th><th>What is sent</th></tr></thead>
             <tbody>
                 <tr><td>Each turn of the role-play (<code>/api/roleplay</code>)</td><td>The scenario's dispatch context and customer persona (for "Build Your Own Scenario": the text you entered, up to 1,500 characters each), plus the whole conversation so far, each message up to 1,500 characters.</td></tr>
-                <tr><td>"End Role-play &amp; Request Panel Analysis" (<code>/api/analysis</code>)</td><td>The full transcript of the conversation.</td></tr>
+                <tr><td>"End Role-play &amp; Request Panel Analysis" (<code>/api/analysis</code>)</td><td>The full transcript of the conversation and the scenario's dispatch context.</td></tr>
             </tbody>
         </table>
         <p>The server functions forward this text to <strong>Google's Gemini model</strong> (<code>gemini-2.5-flash</code>, Google LLC, Mountain View, CA, USA) through Netlify's infrastructure and return the answer to your browser. The call to Google is made by the server, not by your browser, so Google does not receive your IP address from this site. Google processes the text under its Gemini API terms and may keep it for a limited period to detect abuse. Neither the server functions nor this operator store the text; nothing is written to a database or log file by the site's own code.</p>

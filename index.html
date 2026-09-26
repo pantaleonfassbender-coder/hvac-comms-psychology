@@ -781,11 +781,11 @@
             return data.text || '';
         }
 
-        async function callAnalysisAPI(transcript) {
+        async function callAnalysisAPI(transcript, scenario) {
             const res = await fetch('/api/analysis', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ transcript })
+                body: JSON.stringify({ transcript, scenario })
             });
             if (!res.ok) {
                 const err = await res.json().catch(() => ({}));
@@ -1007,7 +1007,7 @@
             const transcriptText = fsState.messages.map(m => `${m.role === 'user' ? 'Technician (User)' : 'Customer'}: ${m.parts[0].text}`).join("\n");
 
             try {
-                const analysis = await callAnalysisAPI(transcriptText);
+                const analysis = await callAnalysisAPI(transcriptText, fsState.scenario.context);
                 fsState.lastDebrief = { transcript: transcriptText, analysis };
                 renderAnalysis(analysis);
             } catch (err) {
