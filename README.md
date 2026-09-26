@@ -75,7 +75,9 @@ Pushing to `main` deploys automatically on Netlify. There is no build step for t
 
 ## License
 
-Texts, scenarios, and the podcast episode © 2026 Dr. Pantaleon Fassbender. All rights reserved. Instructors and schools may use the live site free of charge in their teaching, link to it, and embed it. Please ask before republishing the content.
+© 2026 Dr. Pantaleon Fassbender. All rights reserved: code, texts, scenarios, and the podcast episode. The source is public for transparency (for example, so schools can see exactly what the AI functions send). No license to copy, modify, or redistribute it is granted.
+
+Instructors and schools may use the live site free of charge in their teaching, link to it, and embed it. For adaptations or a version for your institution, please get in touch.
 
 Third-party components: Inter (SIL Open Font License 1.1), Lucide (ISC), Tailwind CSS (MIT).
 
