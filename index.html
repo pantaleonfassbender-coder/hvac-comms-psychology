@@ -45,6 +45,7 @@
         .section-view { display: none; }
         #view-home { display: block; }
         
+        .scenario-card > summary::-webkit-details-marker { display: none; }
         .chat-bubble { max-width: 80%; }
         .typing-dot { animation: typing 1.4s infinite ease-in-out both; }
         .typing-dot:nth-child(1) { animation-delay: -0.32s; }
@@ -231,42 +232,114 @@
         <div id="view-scenarios" class="section-view fade-in bg-white max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Typical Interaction Situations</h2>
-                <p class="mt-4 text-xl text-gray-600">Every call is different, but they generally fall into one of these four psychological profiles.</p>
+                <p class="mt-4 text-xl text-gray-600">Every call is different, but they generally fall into one of these four psychological profiles. Open a card for the outline, then practice it.</p>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
                 <!-- Scenario 1 -->
-                <div class="border border-gray-200 rounded-lg p-6 hover:border-hvac-blue transition-colors flex flex-col h-full">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-50 p-2 rounded-full mr-4"><i data-lucide="clipboard-check" class="text-hvac-blue w-6 h-6"></i></div>
-                        <h3 class="text-xl font-bold">1. Routine Maintenance</h3>
+                <details class="scenario-card group border border-gray-200 rounded-lg hover:border-hvac-blue open:border-hvac-blue transition-colors">
+                    <summary class="p-6 cursor-pointer list-none">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-50 p-2 rounded-full mr-4"><i data-lucide="clipboard-check" class="text-hvac-blue w-6 h-6"></i></div>
+                            <h3 class="text-xl font-bold flex-grow">1. Routine Maintenance</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180"></i>
+                        </div>
+                        <p class="text-gray-600"><strong>The Vibe:</strong> Low stress, customer is mostly indifferent or sees it as a chore.</p>
+                        <span class="mt-3 inline-block text-sm font-semibold text-hvac-blue group-open:hidden">Show outline &rarr;</span>
+                    </summary>
+                    <div class="px-6 pb-6 space-y-4 text-sm text-gray-700 border-t border-gray-100 pt-4">
+                        <div><h4 class="font-bold text-gray-900 mb-1">What's going on for the customer</h4><p>"This is a box to tick. I hope he doesn't try to sell me something." Low emotional involvement, mild suspicion of upselling, little knowledge of the system.</p></div>
+                        <div><h4 class="font-bold text-gray-900 mb-1">Your goal</h4><p>Turn a routine visit into trust: the customer should leave knowing more about their system and seeing you as their go-to technician, whether or not anything is sold today.</p></div>
+                        <div><h4 class="font-bold text-gray-900 mb-1">Models that fit</h4><p>Consultative questioning (SPIN): ask about comfort, noise, bills and hot or cold rooms before offering any opinion. Liking and Reciprocity through small, genuine extra care.</p></div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div><h4 class="font-bold text-green-700 mb-1">Do</h4><ul class="space-y-1"><li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>"While I finish these readings, how has the comfort been, especially upstairs?"</span></li><li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Show one photo or reading and explain what it means in plain words.</span></li><li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Leave a short written summary: what you checked, what looks good, what to watch.</span></li></ul></div>
+                            <div><h4 class="font-bold text-red-700 mb-1">Avoid</h4><ul class="space-y-1"><li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Opening with the system's age or refrigerant type as a sales hook.</span></li><li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Recommending replacement before the customer has named any problem.</span></li><li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Rushing: indifference turns into distrust when the visit feels like a sales call.</span></li></ul></div>
+                        </div>
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-3 rounded-r"><strong class="text-gray-900">Safety line:</strong> If you find a real hazard during maintenance (cracked heat exchanger, CO reading, scorched wiring), the routine visit is over: say so plainly and follow your company's procedure.</div>
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <button type="button" onclick="practiceScenario('basecamp', 'maint-upgrade')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-md">Practice in Base Camp</button>
+                            <button type="button" onclick="practiceScenario('fivestar', 'maint-upgrade')" class="flex-1 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold py-2 px-4 rounded-md">AI role-play (Five Star)</button>
+                        </div>
                     </div>
-                    <p class="text-gray-600 flex-grow"><strong>The Vibe:</strong> Low stress, customer is mostly indifferent or sees it as a chore.</p>
-                </div>
+                </details>
                 <!-- Scenario 2 -->
-                <div class="border border-gray-200 rounded-lg p-6 hover:border-hvac-red transition-colors flex flex-col h-full">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-red-50 p-2 rounded-full mr-4"><i data-lucide="alert-triangle" class="text-hvac-red w-6 h-6"></i></div>
-                        <h3 class="text-xl font-bold">2. Emergency Repair</h3>
+                <details class="scenario-card group border border-gray-200 rounded-lg hover:border-hvac-red open:border-hvac-red transition-colors">
+                    <summary class="p-6 cursor-pointer list-none">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-red-50 p-2 rounded-full mr-4"><i data-lucide="alert-triangle" class="text-hvac-red w-6 h-6"></i></div>
+                            <h3 class="text-xl font-bold flex-grow">2. Emergency Repair</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180"></i>
+                        </div>
+                        <p class="text-gray-600"><strong>The Vibe:</strong> High stress, uncomfortable environment, fear of costs.</p>
+                        <span class="mt-3 inline-block text-sm font-semibold text-hvac-red group-open:hidden">Show outline &rarr;</span>
+                    </summary>
+                    <div class="px-6 pb-6 space-y-4 text-sm text-gray-700 border-t border-gray-100 pt-4">
+                        <div><h4 class="font-bold text-gray-900 mb-1">What's going on for the customer</h4><p>"I'm hot (or cold), tired, maybe worried about kids or an elderly parent, and now I have to trust a stranger with my money." Stress narrows attention; price feels like an attack.</p></div>
+                        <div><h4 class="font-bold text-gray-900 mb-1">Your goal</h4><p>Lower the temperature of the conversation before discussing the temperature of the house. The customer should feel heard, understand the diagnosis, and make a calm decision.</p></div>
+                        <div><h4 class="font-bold text-gray-900 mb-1">Models that fit</h4><p>L.A.E.R. first (Listen, Acknowledge, Explore, Respond), then Feel-Felt-Found for price shock. Authority through transparency: show the failed part or the reading.</p></div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div><h4 class="font-bold text-green-700 mb-1">Do</h4><ul class="space-y-1"><li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Acknowledge the situation before the invoice: "Twenty-four hours without AC in this heat is miserable."</span></li><li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Show the failed part and explain what it does in one sentence.</span></li><li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Offer clear options with honest trade-offs, including the minimum safe repair.</span></li></ul></div>
+                            <div><h4 class="font-bold text-red-700 mb-1">Avoid</h4><ul class="space-y-1"><li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Defending the price before the customer feels heard.</span></li><li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Fear tactics ("your compressor will burn out") used as pressure rather than information.</span></li><li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Jargon: under stress, customers hear it as evasion.</span></li></ul></div>
+                        </div>
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-3 rounded-r"><strong class="text-gray-900">Safety line:</strong> Gas smell, CO alarm or electrical burning: safety comes before comfort and before price. Shut down per procedure and explain why, calmly and clearly.</div>
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <button type="button" onclick="practiceScenario('basecamp', 'repair-shock')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-md">Practice in Base Camp</button>
+                            <button type="button" onclick="practiceScenario('fivestar', 'repair-shock')" class="flex-1 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold py-2 px-4 rounded-md">AI role-play (Five Star)</button>
+                        </div>
                     </div>
-                    <p class="text-gray-600 flex-grow"><strong>The Vibe:</strong> High stress, uncomfortable environment, fear of costs.</p>
-                </div>
+                </details>
                 <!-- Scenario 3 -->
-                <div class="border border-gray-200 rounded-lg p-6 hover:border-green-500 transition-colors flex flex-col h-full">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-green-50 p-2 rounded-full mr-4"><i data-lucide="trending-up" class="text-green-600 w-6 h-6"></i></div>
-                        <h3 class="text-xl font-bold">3. System Upgrading</h3>
+                <details class="scenario-card group border border-gray-200 rounded-lg hover:border-green-500 open:border-green-500 transition-colors">
+                    <summary class="p-6 cursor-pointer list-none">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-50 p-2 rounded-full mr-4"><i data-lucide="trending-up" class="text-green-600 w-6 h-6"></i></div>
+                            <h3 class="text-xl font-bold flex-grow">3. System Upgrading</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180"></i>
+                        </div>
+                        <p class="text-gray-600"><strong>The Vibe:</strong> Evaluative, skeptical, sensitive to price and ROI.</p>
+                        <span class="mt-3 inline-block text-sm font-semibold text-green-600 group-open:hidden">Show outline &rarr;</span>
+                    </summary>
+                    <div class="px-6 pb-6 space-y-4 text-sm text-gray-700 border-t border-gray-100 pt-4">
+                        <div><h4 class="font-bold text-gray-900 mb-1">What's going on for the customer</h4><p>"This is a big purchase. Am I being upsold? What do I actually get for the extra money?" Analytical, comparison-shopping, wants numbers and proof.</p></div>
+                        <div><h4 class="font-bold text-gray-900 mb-1">Your goal</h4><p>Help the customer choose the system that fits their needs and budget, and understand why. A well-informed "no" today is better than a pressured "yes".</p></div>
+                        <div><h4 class="font-bold text-gray-900 mb-1">Models that fit</h4><p>Need-Payoff questions (SPIN): connect each option to a problem the customer named. Commitment and Consistency: confirm priorities before presenting options. Social proof only if true.</p></div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div><h4 class="font-bold text-green-700 mb-1">Do</h4><ul class="space-y-1"><li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Recap their own words: "You mentioned the humidity upstairs and the noise at night..."</span></li><li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Present good / better / best and let them choose.</span></li><li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Give real numbers you can back up (equipment ratings, published rebates) and say what you do not know.</span></li></ul></div>
+                            <div><h4 class="font-bold text-red-700 mb-1">Avoid</h4><ul class="space-y-1"><li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Feature dumping (SEER, inverter, two-stage) without linking to their needs.</span></li><li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Invented savings figures or fake deadlines.</span></li><li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Passive-aggressive framing: "You get what you pay for."</span></li></ul></div>
+                        </div>
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-3 rounded-r"><strong class="text-gray-900">Safety line:</strong> Sizing and installation quality matter more than brand tier. Never promise comfort results a load calculation has not supported.</div>
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <button type="button" onclick="practiceScenario('basecamp', 'system-replacement')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-md">Practice in Base Camp</button>
+                            <button type="button" onclick="practiceScenario('fivestar', 'system-replacement')" class="flex-1 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold py-2 px-4 rounded-md">AI role-play (Five Star)</button>
+                        </div>
                     </div>
-                    <p class="text-gray-600 flex-grow"><strong>The Vibe:</strong> Evaluative, skeptical, sensitive to price and ROI.</p>
-                </div>
+                </details>
                 <!-- Scenario 4 -->
-                <div class="border border-gray-200 rounded-lg p-6 hover:border-purple-500 transition-colors flex flex-col h-full">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-purple-50 p-2 rounded-full mr-4"><i data-lucide="home" class="text-purple-600 w-6 h-6"></i></div>
-                        <h3 class="text-xl font-bold">4. The Second Opinion</h3>
+                <details class="scenario-card group border border-gray-200 rounded-lg hover:border-purple-500 open:border-purple-500 transition-colors">
+                    <summary class="p-6 cursor-pointer list-none">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-50 p-2 rounded-full mr-4"><i data-lucide="home" class="text-purple-600 w-6 h-6"></i></div>
+                            <h3 class="text-xl font-bold flex-grow">4. The Second Opinion</h3>
+                            <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180"></i>
+                        </div>
+                        <p class="text-gray-600"><strong>The Vibe:</strong> Distrustful of the industry, looking for a deal.</p>
+                        <span class="mt-3 inline-block text-sm font-semibold text-purple-600 group-open:hidden">Show outline &rarr;</span>
+                    </summary>
+                    <div class="px-6 pb-6 space-y-4 text-sm text-gray-700 border-t border-gray-100 pt-4">
+                        <div><h4 class="font-bold text-gray-900 mb-1">What's going on for the customer</h4><p>"The last company tried to scare me. Are you all the same?" The customer is testing you, and may also be afraid the first diagnosis was true.</p></div>
+                        <div><h4 class="font-bold text-gray-900 mb-1">Your goal</h4><p>Be the technician who lets the evidence decide. The customer should trust your process, whether your finding confirms or contradicts the first company.</p></div>
+                        <div><h4 class="font-bold text-gray-900 mb-1">Models that fit</h4><p>Radical transparency (Authority through evidence): invite the customer to watch the test. Acknowledge the fear without judging the competitor. Price only after diagnosis.</p></div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div><h4 class="font-bold text-green-700 mb-1">Do</h4><ul class="space-y-1"><li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>"I understand why you'd want a second look. Let's test it together and I'll show you the reading."</span></li><li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>Explain what a normal and an abnormal result look like before you measure.</span></li><li class="flex items-start"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2 mt-1 flex-shrink-0"></i><span>If the first diagnosis was right, say so, even if it means no sale for you.</span></li></ul></div>
+                            <div><h4 class="font-bold text-red-700 mb-1">Avoid</h4><ul class="space-y-1"><li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Bashing the competitor. If they were right, you have just told the customer to ignore a safety warning.</span></li><li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Quoting a lower price before diagnosing anything.</span></li><li class="flex items-start"><i data-lucide="x" class="w-4 h-4 text-red-500 mr-2 mt-1 flex-shrink-0"></i><span>Dismissing the carbon-monoxide concern to win the customer over.</span></li></ul></div>
+                        </div>
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-3 rounded-r"><strong class="text-gray-900">Safety line:</strong> A cracked heat exchanger is a real carbon-monoxide risk. Test properly; if confirmed, red-tag per procedure regardless of what the customer hopes to hear.</div>
+                        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                            <button type="button" onclick="practiceScenario('basecamp', 'second-opinion')" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-semibold py-2 px-4 rounded-md">Practice in Base Camp</button>
+                            <button type="button" onclick="practiceScenario('fivestar', 'second-opinion')" class="flex-1 bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-600 hover:to-amber-700 text-white font-semibold py-2 px-4 rounded-md">AI role-play (Five Star)</button>
+                        </div>
                     </div>
-                    <p class="text-gray-600 flex-grow"><strong>The Vibe:</strong> Distrustful of the industry, looking for a deal.</p>
-                </div>
+                </details>
             </div>
         </div>
 
@@ -408,6 +481,13 @@
 
             if (viewId === 'basecamp') renderBaseCampList();
             if (viewId === 'fivestar') renderFiveStarList();
+        }
+
+        // Jump from a Key Scenarios outline straight into the matching exercise.
+        function practiceScenario(mode, id) {
+            navigate(mode);
+            if (mode === 'basecamp') startBaseCamp(id);
+            else startFiveStar(id);
         }
 
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
